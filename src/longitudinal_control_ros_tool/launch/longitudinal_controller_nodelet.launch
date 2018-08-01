@@ -1,0 +1,18 @@
+<launch>
+
+    <arg name="config" default="$(find longitudinal_control_ros_tool)/launch/params/longitudinal_controller_parameters.yaml"/>
+    <arg name="nodelet_manager_name" default="nodelet_manager_longitudinal_controller"/>
+    <arg name="start_nodelet_manager" default="true"/>
+    <arg name="nodelet_name" default="longitudinal_controller"/>
+
+    <!-- Nodelet manager (if enabled) -->
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)" args="manager" output="screen"
+          if="$(arg start_nodelet_manager)"/>
+
+    <!-- longitudinalController -->
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_name)"
+          args="load longitudinal_control_ros_tool/longitudinalControllerNodelet $(arg nodelet_manager_name)" output="screen" required="true">
+        <rosparam command="load" file="$(arg config)"/>
+    </node>
+
+</launch>

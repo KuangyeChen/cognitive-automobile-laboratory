@@ -1,0 +1,6 @@
+<launch>
+
+    <test test-name="label_dilation_nodelet_test" pkg="image_preproc_ros_tool" type="label_dilation_nodelet-test" time-limit="60.0"/>
+    <include file="$(find image_preproc_ros_tool)/launch/label_dilation_nodelet.launch"/>
+</launch>
+

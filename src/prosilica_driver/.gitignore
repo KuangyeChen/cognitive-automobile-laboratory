@@ -1,0 +1,7 @@
+build
+bin
+*cfgc
+lib
+docs
+installed
+wiped

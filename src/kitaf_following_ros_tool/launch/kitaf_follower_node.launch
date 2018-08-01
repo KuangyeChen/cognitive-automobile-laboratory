@@ -1,0 +1,9 @@
+<launch>
+
+  <arg name="config" default="$(find kitaf_following_ros_tool)/launch/params/kitaf_follower_parameters.yaml" />
+
+  <node pkg="kitaf_following_ros_tool" type="kitaf_follower" name="kitaf_follower" output="screen">
+    <rosparam command="load" file="$(arg config)"/>
+  </node>
+
+</launch>

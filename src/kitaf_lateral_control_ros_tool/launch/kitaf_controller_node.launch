@@ -1,0 +1,12 @@
+<launch>
+
+  <arg name="config" default="$(find kitaf_lateral_control_ros_tool)/launch/params/kitaf_controller_parameters.yaml" />
+
+
+  <node pkg="kitaf_lateral_control_ros_tool" type="kitaf_controller" name="kitaf_controller" output="screen">
+    <rosparam command="load" file="$(arg config)"/>
+
+
+  </node>
+
+</launch>

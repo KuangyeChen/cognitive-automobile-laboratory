@@ -1,0 +1,13 @@
+<launch>
+    <arg name="gamma" default="1.0" />
+    <arg name="auto_gamma" default="false" />
+    <arg name="camera_name" default="camera" />
+    <arg name="src_image" />
+    <arg name="tgt_image" />
+    <node pkg="image_preproc_ros_tool" type="gamma_correction" name="gamma_correction_$(arg camera_name)" ns="/sensor" output="log">
+    	<remap from="src/image" to="$(arg src_image)" />
+    	<remap from="tgt/image" to="$(arg tgt_image)" />
+    	<param name="gamma" value="$(arg gamma)" />
+    	<param name="auto_gamma" value="$(arg auto_gamma)" />
+	</node>
+</launch>

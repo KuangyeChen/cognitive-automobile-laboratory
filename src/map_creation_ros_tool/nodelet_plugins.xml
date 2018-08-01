@@ -1,0 +1,6 @@
+<library path="lib/libmap_creation_nodelet">
+<class name="map_creation_ros_tool/MapCreationNodelet"
+       type="map_creation_ros_tool::MapCreationNodelet" base_class_type="nodelet::Nodelet">
+  <description></description>
+</class>
+</library>

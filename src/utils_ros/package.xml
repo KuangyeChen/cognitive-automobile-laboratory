@@ -1,0 +1,29 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>utils_ros</name>
+  <version>1.0.0</version>
+  <description>Awesome utilities for use with ROS.</description>
+
+  <license>MRT/FZI</license>
+  <maintainer email="andre-marcel.hellmund@kit.edu">Andre-Marcel Hellmund</maintainer>
+  <author email="andre-marcel.hellmund@kit.edu">Andre-Marcel Hellmund</author>
+  <author email="sascha.wirges@kit.edu">Sascha Wirges</author>
+  <url type="repository">https://gitlab.mrt.uni-karlsruhe.de/MRT/utils_ros.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <test_depend>gtest</test_depend>
+  <depend>roscpp</depend>
+  <depend>roslib</depend>
+  <depend>message_filters</depend>
+  <depend>geometry_msgs</depend>
+  <depend>boost</depend>
+  <test_depend>rostest</test_depend>
+  <test_depend>image_transport</test_depend>
+  <depend>generic_logger</depend>
+
+  <export>
+  </export>
+</package>

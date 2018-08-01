@@ -1,0 +1,10 @@
+<launch>
+
+  <arg name="config" default="$(find lateral_control_ros_tool)/launch/params/lateral_controller_parameters.yaml" />
+
+  <node pkg="lateral_control_ros_tool" type="lateral_controller" name="lateral_controller" output="screen">
+    <rosparam command="load" file="$(arg config)"/>
+    <remap from="/lateral_controller/servo_command" to="/motor_interface/servo_command" />
+  </node>
+
+</launch>

@@ -1,0 +1,9 @@
+<launch>
+
+  <arg name="config" default="$(find image_preproc_ros_tool)/launch/params/label_dilation_parameters.yaml" />
+
+  <node pkg="image_preproc_ros_tool" type="label_dilation" name="label_dilation" output="screen">
+    <rosparam command="load" file="$(arg config)"/>
+  </node>
+
+</launch>

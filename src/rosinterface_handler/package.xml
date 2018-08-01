@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<package>
+  <name>rosinterface_handler</name>
+  <version>0.2.1</version>
+  <description>An easy toolbox to generate interfaces from a node to the ROS world.</description>
+  <license>BSD</license>
+
+  <maintainer email="poggenhans@fzi.de">Fabian Poggenhans</maintainer>
+  <author email="cbandera@posteo.de">Claudio Bandera</author>
+  <url type="repository">https://github.com/cbandera/rosinterface_handler.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <run_depend>catkin</run_depend>
+  <build_depend>rostest</build_depend>
+  <test_depend>roscpp</test_depend>
+  <test_depend>dynamic_reconfigure</test_depend>
+  <test_depend>message_filters</test_depend>
+  <test_depend>std_msgs</test_depend>
+  <test_depend>geometry_msgs</test_depend>
+  <test_depend>diagnostic_updater</test_depend>
+  <test_depend>tf2_ros</test_depend>
+</package>
+

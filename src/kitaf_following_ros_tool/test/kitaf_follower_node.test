@@ -1,0 +1,8 @@
+<launch>
+    <!-- uncomment this if your unittest advertises /clock" -->
+    <!--<param name="/use_sim_time" value="True"/>-->
+
+    <test test-name="kitaf_follower_node_test" pkg="kitaf_following_ros_tool" type="kitaf_follower_node-test" time-limit="60.0"/>
+    <include file="$(find kitaf_following_ros_tool)/launch/kitaf_follower_node.launch"/>
+</launch>
+

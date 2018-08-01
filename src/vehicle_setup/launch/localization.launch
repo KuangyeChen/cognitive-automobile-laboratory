@@ -1,0 +1,10 @@
+<launch>
+  
+  <arg name="car_name" default="$(env CAR_NAME)" />
+
+  <include file="$(find vehicle_setup)/launch/world_stargazer_tf.launch" />
+
+  <include file="$(find stargazer_ros_tool)/launch/stargazer_nodelets.launch">
+    <arg name="stargazer_config" value="$(find vehicle_setup)/launch/params/$(arg car_name)/stargazer_optimized.yaml"/>
+  </include>
+</launch>

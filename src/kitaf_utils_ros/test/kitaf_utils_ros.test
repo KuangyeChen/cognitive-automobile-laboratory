@@ -1,0 +1,5 @@
+<launch>
+  <!-- use this like a normal launch file to set up your test environment. The test tag below is used to launch your unittest node-->
+
+  <test test-name="test_kitaf_utils_ros" pkg="kitaf_utils_ros" type="kitaf_utils_ros-test" />
+</launch>

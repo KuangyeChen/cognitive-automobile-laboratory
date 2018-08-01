@@ -1,0 +1,14 @@
+<launch>
+  <node ns="/sensors/camera" name="top" pkg="prosilica_driver" type="prosilica_node" output="screen">
+    <remap from="camera" to="top" />
+    <remap from="image_raw" to="top/image_raw" />
+
+    <param name="guid" value="" />
+    <param name="ip_address" type="str" value="169.254.3.100" />
+    <param name="trigger_mode" value="fixedrate" />
+    <param name="auto_exposure" value="false" />
+    <param name="trig_rate" value="20" />
+    <param name="exposure" value="0.002" />
+    <param name="frame_id" value="camera_top" />
+  </node>
+</launch>

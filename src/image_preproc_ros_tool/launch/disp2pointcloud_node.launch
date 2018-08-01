@@ -1,0 +1,14 @@
+<launch>
+  <arg name="image_path"/> <!-- path to root of topic containing all images-->
+  <arg name="config" default="$(find image_preproc_ros_tool)/launch/params/disp2pointcloud_parameters.yaml" />
+  <arg name="mask" default=""/>
+
+  <node pkg="image_preproc_ros_tool" type="disp2pointcloud" name="disp2pointcloud" output="screen" ns="preproc">
+    <rosparam command="load" file="$(arg config)"/>
+    <param name="image_topic" value="$(arg image_path)/image"/>
+    <param name="disp_topic" value="$(arg image_path)/disparity"/>
+    <param name="info_topic" value="$(arg image_path)/camera_info"/>
+    <param name="pointcloud_topic" value="$(arg image_path)/pointcloud2"/>
+    <param name="mask" value="$(arg mask)"/>
+  </node>
+</launch>

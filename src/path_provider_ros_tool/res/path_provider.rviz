@@ -1,0 +1,295 @@
+Panels:
+  - Class: rviz/Displays
+    Help Height: 0
+    Name: Displays
+    Property Tree Widget:
+      Expanded:
+        - /Top1/Visibility1
+      Splitter Ratio: 0.5
+    Tree Height: 856
+  - Class: rviz/Selection
+    Name: Selection
+  - Class: rviz/Tool Properties
+    Expanded:
+      - /2D Pose Estimate1
+      - /2D Nav Goal1
+      - /Publish Point1
+    Name: Tool Properties
+    Splitter Ratio: 0.588679016
+  - Class: rviz/Views
+    Expanded:
+      - /Current View1
+    Name: Views
+    Splitter Ratio: 0.5
+  - Class: rviz/Time
+    Experimental: false
+    Name: Time
+    SyncMode: 0
+    SyncSource: ""
+Visualization Manager:
+  Class: ""
+  Displays:
+    - Alpha: 0.5
+      Cell Size: 1
+      Class: rviz/Grid
+      Color: 160; 160; 164
+      Enabled: true
+      Line Style:
+        Line Width: 0.0299999993
+        Value: Lines
+      Name: Grid
+      Normal Cell Count: 0
+      Offset:
+        X: 0
+        Y: 0
+        Z: -0.349999994
+      Plane: XY
+      Plane Cell Count: 40
+      Reference Frame: <Fixed Frame>
+      Value: true
+    - Class: rviz/Camera
+      Enabled: false
+      Image Rendering: background and overlay
+      Image Topic: /sensors/camera/top/image_raw
+      Name: Top
+      Overlay Alpha: 0.5
+      Queue Size: 2
+      Transport Hint: raw
+      Unreliable: false
+      Value: false
+      Visibility:
+        Current path: false
+        Grid: false
+        Landmarks: true
+        Recorded path: false
+        TF: false
+        Value: true
+      Zoom Factor: 1
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 255; 85; 255
+      Enabled: true
+      Head Diameter: 0.300000012
+      Head Length: 0.200000003
+      Length: 0.300000012
+      Line Style: Lines
+      Line Width: 0.0299999993
+      Name: Current path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.0299999993
+      Shaft Diameter: 0.100000001
+      Shaft Length: 0.100000001
+      Topic: /path_follower/path
+      Unreliable: false
+      Value: true
+    - Alpha: 1
+      Buffer Length: 1
+      Class: rviz/Path
+      Color: 255; 85; 255
+      Enabled: true
+      Head Diameter: 0.300000012
+      Head Length: 0.200000003
+      Length: 0.300000012
+      Line Style: Lines
+      Line Width: 0.0299999993
+      Name: Recorded path
+      Offset:
+        X: 0
+        Y: 0
+        Z: 0
+      Pose Color: 255; 85; 255
+      Pose Style: None
+      Radius: 0.0299999993
+      Shaft Diameter: 0.100000001
+      Shaft Length: 0.100000001
+      Topic: /path
+      Unreliable: false
+      Value: true
+    - Class: rviz/MarkerArray
+      Enabled: true
+      Marker Topic: /landmarks
+      Name: Landmarks
+      Namespaces:
+        "": true
+        Landmarks: true
+      Queue Size: 100
+      Value: true
+    - Class: rviz/TF
+      Enabled: true
+      Frame Timeout: 15
+      Frames:
+        All Enabled: true
+        camera_top:
+          Value: true
+        kinect2_ir_optical_frame:
+          Value: true
+        lm1120:
+          Value: true
+        lm134:
+          Value: true
+        lm1568:
+          Value: true
+        lm1600:
+          Value: true
+        lm16390:
+          Value: true
+        lm18448:
+          Value: true
+        lm18560:
+          Value: true
+        lm2066:
+          Value: true
+        lm2180:
+          Value: true
+        lm22:
+          Value: true
+        lm2432:
+          Value: true
+        lm24578:
+          Value: true
+        lm24832:
+          Value: true
+        lm26624:
+          Value: true
+        lm274:
+          Value: true
+        lm400:
+          Value: true
+        lm8324:
+          Value: true
+        lm8452:
+          Value: true
+        lm8464:
+          Value: true
+        stargazer:
+          Value: true
+        vehicle_front_axle:
+          Value: true
+        vehicle_rear_axle:
+          Value: true
+        world:
+          Value: true
+      Marker Scale: 1
+      Name: TF
+      Show Arrows: false
+      Show Axes: true
+      Show Names: true
+      Tree:
+        world:
+          stargazer:
+            camera_top:
+              vehicle_front_axle:
+                kinect2_ir_optical_frame:
+                  {}
+                vehicle_rear_axle:
+                  {}
+            lm1120:
+              {}
+            lm134:
+              {}
+            lm1568:
+              {}
+            lm1600:
+              {}
+            lm16390:
+              {}
+            lm18448:
+              {}
+            lm18560:
+              {}
+            lm2066:
+              {}
+            lm2180:
+              {}
+            lm22:
+              {}
+            lm2432:
+              {}
+            lm24578:
+              {}
+            lm24832:
+              {}
+            lm26624:
+              {}
+            lm274:
+              {}
+            lm400:
+              {}
+            lm8324:
+              {}
+            lm8452:
+              {}
+            lm8464:
+              {}
+      Update Interval: 0
+      Value: true
+  Enabled: true
+  Global Options:
+    Background Color: 86; 86; 86
+    Default Light: true
+    Fixed Frame: world
+    Frame Rate: 30
+  Name: root
+  Tools:
+    - Class: rviz/Interact
+      Hide Inactive Objects: true
+    - Class: rviz/MoveCamera
+    - Class: rviz/Select
+    - Class: rviz/FocusCamera
+    - Class: rviz/Measure
+    - Class: rviz/SetInitialPose
+      Topic: /initialpose
+    - Class: rviz/SetGoal
+      Topic: /move_base_simple/goal
+    - Class: rviz/PublishPoint
+      Single click: true
+      Topic: /clicked_point
+  Value: true
+  Views:
+    Current:
+      Angle: 0
+      Class: rviz/TopDownOrtho
+      Enable Stereo Rendering:
+        Stereo Eye Separation: 0.0599999987
+        Stereo Focal Distance: 1
+        Swap Stereo Eyes: false
+        Value: false
+      Invert Z Axis: false
+      Name: Current View
+      Near Clip Distance: 0.00999999978
+      Scale: 113.007889
+      Target Frame: vehicle_front_axle
+      Value: TopDownOrtho (rviz)
+      X: 0
+      Y: 0
+    Saved: ~
+Window Geometry:
+  Displays:
+    collapsed: false
+  Height: 1004
+  Hide Left Dock: false
+  Hide Right Dock: true
+  Left:
+    collapsed: false
+  QMainWindow State: 000000ff00000000fd00000004000000000000016a00000399fc0200000008fb0000001200530065006c0065006300740069006f006e00000001e10000009b0000006400fffffffb0000001e0054006f006f006c002000500072006f007000650072007400690065007302000001ed000001df00000185000000a3fb000000120056006900650077007300200054006f006f02000001df000002110000018500000122fb000000200054006f006f006c002000500072006f0070006500720074006900650073003203000002880000011d000002210000017afb000000100044006900730070006c006100790073010000003500000399000000dd00fffffffb0000002000730065006c0065006300740069006f006e00200062007500660066006500720200000138000000aa0000023a00000294fb00000014005700690064006500530074006500720065006f02000000e6000000d2000003ee0000030bfb0000000c004b0069006e0065006300740200000186000001060000030c00000261000000010000010f00000222fc0200000003fb0000001e0054006f006f006c002000500072006f00700065007200740069006500730100000041000000780000000000000000fb0000000a00560069006500770073000000010e00000222000000b000fffffffb0000001200530065006c0065006300740069006f006e010000025a000000b20000000000000000000000020000078000000016fc0100000004fb00000008004c00650066007401000000000000004e0000004e0000004efb000000060054006f007000000001890000016a0000004c00fffffffb0000000a00520069006700680074010000004e000007320000005700000057fb0000000a00560069006500770073030000004e00000080000002e10000019700000003000004b00000003efc0100000002fb0000000800540069006d00650000000000000004b00000030000fffffffb0000000800540069006d00650100000000000004500000000000000000000006100000039900000004000000040000000800000008fc0000000100000002000000010000000a0054006f006f006c00730000000000ffffffff0000000000000000
+  Right:
+    collapsed: false
+  Selection:
+    collapsed: false
+  Time:
+    collapsed: false
+  Tool Properties:
+    collapsed: false
+  Top:
+    collapsed: false
+  Views:
+    collapsed: true
+  Width: 1920
+  X: 0
+  Y: 24

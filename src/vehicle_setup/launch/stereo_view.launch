@@ -1,0 +1,7 @@
+<launch>
+  <node name="stereo_view" type="stereo_view" pkg="image_view" output="screen">
+    <param name="approximate_sync" value="true" />
+    <remap from="/stereo" to="/sensors/camera" />
+    <remap from="image" to="resized/image_raw" />
+  </node>
+</launch>

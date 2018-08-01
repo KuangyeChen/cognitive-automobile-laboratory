@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>generic_logger</name>
+  <version>0.3.0</version>
+  <description>The generic_logger package</description>
+
+  <license>MRT/FZI</license>
+  <maintainer email="sascha.wirges@kit.edu">Sascha Wirges</maintainer>
+  <author email="sascha.wirges@kit.edu">Sascha Wirges</author>
+  <url type="repository">https://gitlab.mrt.uni-karlsruhe.de/MRT/generic_logger.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <test_depend>gtest</test_depend>
+
+  <export>
+  </export>
+</package>

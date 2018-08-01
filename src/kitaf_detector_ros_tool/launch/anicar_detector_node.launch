@@ -1,0 +1,9 @@
+<launch>
+
+  <arg name="config" default="$(find kitaf_detector_ros_tool)/launch/params/anicar_detector_parameters.yaml" />
+
+  <node pkg="kitaf_detector_ros_tool" type="anicar_detector_node.py" name="anicar_detector" output="screen">
+    <rosparam command="load" file="$(arg config)"/>
+    <param name="model" value="$(find kitaf_detector_ros_tool)/res/anicar_detector/frozen_inference_graph.pb"/>
+  </node>
+</launch>

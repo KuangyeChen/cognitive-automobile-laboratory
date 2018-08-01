@@ -1,0 +1,80 @@
+#!/usr/bin/env python
+"""
+Add your desired parameters here. All required headers will be generated from this.
+!!!IMPORTANT this file must be executable !!!
+
+Use one of these commands to add parameters to your parameter struct:
+
+def add(self, name, paramtype, description, level=0, edit_method='""', default=None, min=None, max=None, configurable=False, global_scope=False, constant=False):
+        Adds parameters to your parameter struct.
+
+def add_enum(self, name, description, entry_strings, default=None, paramtype='int'):
+        Adds an enum to dynamic reconfigure
+
+def add_group(self, name):
+        Create a parameter group for the dynamic_reconfigure window
+
+def add_publisher(self, name, message_type, description, default_topic="", default_queue_size=5, topic_param=None,
+                  queue_size_param=None, header=None, module=None, configurable=False, scope='private',
+                  constant=False):
+        Adds an initialized publisher to your parameter struct and parameter for its topic and queue size
+
+def add_subscriber(self, name, message_type, description, default_topic="", default_queue_size=5, no_delay=False,
+                   topic_param=None, queue_size_param=None, header=None, module=None, configurable=False,
+                   scope='private', constant=False):
+        Adds an initialized subscriber to your parameter struct and parameters for topic and queue size.
+
+
+For more information on the API, see here: https://gitlab.mrt.uni-karlsruhe.de/MRT/rosinterface_handler/blob/master/doc/HowToWriteYourFirstInterfaceFile.md
+"""
+from rosinterface_handler.interface_generator_catkin import *
+
+gen = InterfaceGenerator()
+
+# Add a parameter for changing verbosity (=log level) on the fly
+gen.add_verbosity_param(configurable=True)
+
+# Your Params here
+gen.add("wheel_base", paramtype='double', description="wheelbase of anicar", default=0.51, min=0, max=1, configurable=True, global_scope=False)
+gen.add("msg_queue_size", paramtype='int', description="Queusize for publisher", default=5, min=1)
+gen.add("control_loop_rate", paramtype='double', description="controllers loop rate", default=50.0, min=10.0, max=200.0, configurable=True, global_scope=False)
+gen.add("velocity_loop_rate", paramtype='double', description="controllers loop rate", default=40.0, min=10.0, max=200.0, configurable=True, global_scope=False)
+
+gen.add("velocity_cur", paramtype='double', description="fast vehicle velocity", default=1.30, min=0.00, max=2.00, configurable=True, global_scope=False)
+gen.add("k_dis", paramtype='double', description="distance constant", default=3.00, min=0.00, max=10.00, configurable=True, global_scope=False)
+gen.add("k_yaw", paramtype='double', description="yaw constant", default=1.00, min=0.00, max=10.00, configurable=True, global_scope=False)
+gen.add("k_yaw_error", paramtype='double', description="yaw error constant", default=1.50, min=0.00, max=10.00, configurable=True, global_scope=False)
+gen.add("k_compensation", paramtype='double', description="steering error constant", default=-0.10, min=-1.00, max=1.00, configurable=True, global_scope=False)
+gen.add("k_shift", paramtype='double', description="shift kos to point which stays on trajectory", default=0.15, min=0.00, max=1.00, configurable=True, global_scope=False)
+gen.add("error_interval", paramtype='double', description="yaw error interval on trajectory", default=2, min=0.00, max=10.00, configurable=True, global_scope=False)
+gen.add("slowDistance", paramtype='double', description="distance to slow", default=4, min=0.00, max=10.00, configurable=True, global_scope=False)
+gen.add("stopDistance", paramtype='double', description="distance to stop", default=1.5, min=0.00, max=10.00, configurable=True, global_scope=False)
+
+
+gen.add("velocity_exit", paramtype='double', description="vehicle velocity", default=0.3, min=0.00, max=2.00, configurable=True, global_scope=False)
+gen.add("k_dis_exit", paramtype='double', description="distance constant", default=0.6, min=0.00, max=10.00, configurable=True, global_scope=False)
+gen.add("k_yaw_exit", paramtype='double', description="yaw constant", default=1.0, min=0.00, max=10.00, configurable=True, global_scope=False)
+gen.add("k_yaw_error_exit", paramtype='double', description="yaw error constant", default=1.50, min=0.00, max=10.00, configurable=True, global_scope=False)
+
+
+gen.add("max_steering_angle", paramtype='double', description="the maximal possible steering angle (rad)", default = 0.7, configurable=True, global_scope=False)
+gen.add("steer_update_rate", paramtype='double', description="Steer state update rate", default=40.0, min=10.0, max=200.0, configurable=True, global_scope=False)
+gen.add("frame_id_map", paramtype='std::string', description="Map frame ID", default="world")
+gen.add("frame_id_vehicle", paramtype='std::string', description="Vehicle frame ID", default="vehicle_front_axle")
+gen.add("servo_topic", paramtype='std::string', description="Servo command topic", default='/motor_interface/motor_command')
+gen.add("motor_topic", paramtype='std::string', description="Motor command topic", default='/motor_interface/servo_command')
+gen.add("path_topic", paramtype='std::string', description="Path topic", default='/path')
+gen.add("stop_sign_topic", paramtype='std::string', description="Stop sign topic", default='/stop_sign')
+gen.add("motor_state_topic", paramtype='std::string', description="Motor state topic", default='/motor_state')
+gen.add("currentTask_topic", paramtype='std::string', description="exit topic", default='/current_task')
+
+
+# Publisher and subscriber (group name will show up in dynamic_reconfigure window)
+pub_sub = gen.add_group("Publisher and subscriber")
+pub_sub.add_subscriber("dummy_subscriber", message_type="std_msgs::Header", description="example subscriber", default_topic="in_topic", no_delay=True, configurable=True)
+pub_sub.add_publisher("dummy_publisher", message_type="std_msgs::Header", description="example publisher", default_topic="out_topic", configurable=True)
+
+
+# DO NOT TOUCH THIS LINE
+#Syntax : Package, Node, Config Name(The final name will be KitafControllerConfig)
+exit(gen.generate("kitaf_lateral_control_ros_tool", "kitaf_controller", "KitafController"))

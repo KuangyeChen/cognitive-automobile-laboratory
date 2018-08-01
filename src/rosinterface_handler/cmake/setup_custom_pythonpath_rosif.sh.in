@@ -1,0 +1,5 @@
+#!/usr/bin/env sh
+# generated from rosinterface_handler/cmake/setup_custom_pythonpath_rosif.sh.in
+
+PYTHONPATH=@CATKIN_DEVEL_PREFIX@/@CATKIN_GLOBAL_PYTHON_DESTINATION@:$PYTHONPATH
+exec "$@"

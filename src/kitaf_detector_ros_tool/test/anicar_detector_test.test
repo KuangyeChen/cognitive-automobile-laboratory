@@ -1,0 +1,8 @@
+<launch>
+    <!-- uncomment this if your unittest advertises /clock" -->
+    <!--<param name="/use_sim_time" value="True"/>-->
+
+    <test test-name="anicar_detector_test" pkg="kitaf_detector_ros_tool" type="anicar_detector_test.py" time-limit="60.0"/>
+    <include file="$(find kitaf_detector_ros_tool)/launch/anicar_detector_node.launch"/>
+</launch>
+

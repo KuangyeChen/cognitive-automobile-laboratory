@@ -1,0 +1,9 @@
+<launch>
+  <node name="motor_interface" type="motor_interface" pkg="motor_interface_ros_tool" output="screen">
+    <param name="device" value="/dev/ttyUSB0" type="string"/>
+    <param name="gear_ratio" value="3.13e-4" type="double"/>
+    <param name="steer_ratio" value="0.00527962098" type="double"/>
+    <param name="steer_offset" value="127" type="double"/>
+    <param name="maximal_update_rate" value="40.0" type="double"/>
+  </node>
+</launch>

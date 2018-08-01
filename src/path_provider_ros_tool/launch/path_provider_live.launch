@@ -1,0 +1,13 @@
+<launch>
+
+  <include file="$(find vehicle_setup)/launch/camera_top.launch" />
+  <include file="$(find vehicle_setup)/launch/localization.launch" />
+  <include file="$(find vehicle_setup)/launch/urdf_publisher.launch" />
+
+  <!-- Path provider -->
+  <node pkg="path_provider_ros_tool" type="path_provider" name="path_provider" output="screen">
+    <rosparam command="load" file="$(find path_provider_ros_tool)/launch/params/path_provider.yaml"/>
+    <param name="bag_file_name" value="$(arg file)" />
+  </node>
+
+</launch>

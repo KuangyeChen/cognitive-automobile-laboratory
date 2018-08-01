@@ -1,0 +1,6 @@
+<library path="lib/liblongitudinal_controller_nodelet">
+<class name="longitudinal_control_ros_tool/LongitudinalControllerNodelet"
+       type="longitudinal_control_ros_tool::LongitudinalControllerNodelet" base_class_type="nodelet::Nodelet">
+  <description></description>
+</class>
+</library>

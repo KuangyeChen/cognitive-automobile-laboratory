@@ -1,0 +1,10 @@
+<launch>
+  <node name="tui_node" type="tui" pkg="tui_ros_tool" output="screen">
+    <param name="loop_rate" value="60" type="double"/>
+    <param name="max_steering_angle" value="0.7" type="double"/>
+    <remap from="tui_node/motor_command" to="/motor_interface/motor_command" />
+    <remap from="tui_node/servo_command" to="/motor_interface/servo_command" />
+    <remap from="tui_node/motor_feedback" to="/motor_interface/motor_feedback" />
+    <remap from="tui_node/activate" to="/motor_interface/activate" />
+  </node>
+</launch>

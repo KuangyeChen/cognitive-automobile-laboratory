@@ -1,0 +1,15 @@
+<launch>
+  <arg name="stargazer_config" default="$(find stargazer_ros_tool)/res/stargazer.yaml"/>
+  <arg name="bag_file" default="$(find stargazer_ros_tool)/res/Stargazer.bag"/>
+
+  <node pkg="stargazer_ros_tool" type="reprojection_visualizer" name="reprojection_visualizer" output="screen"
+        required="true">
+    <param name="stargazer_config" value="$(arg stargazer_config)"/>
+    <param name="bag_file" value="$(arg bag_file)"/>
+    <param name="landmark_topic" value="/landmarks_seen"/>
+    <param name="pose_topic" value="/stargazer/camera_pose"/>
+    <param name="img_topic" value="/image_undistorted"/>
+    <param name="waitTime" value="10"/>
+  </node>
+
+</launch>

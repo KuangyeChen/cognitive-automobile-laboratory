@@ -1,0 +1,8 @@
+<launch>
+    <!-- uncomment this if your unittest advertises /clock" -->
+    <!--<param name="/use_sim_time" value="True"/>-->
+
+    <test test-name="label_dilation_node_test" pkg="image_preproc_ros_tool" type="label_dilation_node-test" time-limit="60.0"/>
+    <include file="$(find image_preproc_ros_tool)/launch/label_dilation_node.launch"/>
+</launch>
+

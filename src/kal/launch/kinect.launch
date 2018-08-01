@@ -1,0 +1,13 @@
+<launch>
+
+  <include file="$(find kinect2_bridge)/launch/kinect2_bridge.launch"/>
+
+  <node pkg="nodelet" type="nodelet" name="clean_points" args="standalone pcl/PassThrough">
+    <remap from="~input" to="/kinect2/sd/points"/>
+      <rosparam>
+        filter_field_name: z
+        filter_limit_min: 0.7
+        filter_limit_max: 4.0
+      </rosparam>
+  </node>
+</launch>

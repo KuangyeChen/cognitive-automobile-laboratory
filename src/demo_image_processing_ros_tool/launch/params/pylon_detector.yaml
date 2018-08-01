@@ -1,0 +1,27 @@
+# Use this file to specify parameters, that do not have default values.
+# YAML Files can also be helpfull if you want to save parameters for different use-cases.
+# In any way: Default values should go into the .mrtcfg file!
+#
+# Use 'key: value' pairs, e.g.
+# string: 'foo'
+# integer: 1234
+# float: 1234.5
+# boolean: true
+# vector: [1.0, 2.0, 3.4]
+# map: {"a": "b", "c": "d"}
+
+msg_queue_size: 5
+verbosity: debug
+topic_publisher: /segmentation
+topic_subscriber: /kinect2/hd/image_color_rect
+motor_command_topic: /motor_interface/motor_command
+servo_command_topic: /motor_interface/servo_command
+
+threshold: 350
+h_min: 0
+h_max: 45
+s_min: 130
+s_max: 255
+v_min: 50
+v_max: 255
+median_blur_kernel_size: 3

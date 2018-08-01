@@ -1,0 +1,64 @@
+#!/usr/bin/env python
+"""
+Add your desired parameters here. All required headers will be generated from this.
+!!!IMPORTANT this file must be executable !!!
+
+Use one of these commands to add parameters to your parameter struct.
+
+ def add(self, name, paramtype, description, level=0, edit_method='""', default=None, min=None, max=None, configurable=False, global_scope=False, constant=False):
+        Adds parameters to your parameter struct.
+
+        - If no default value is given, you need to specify one in your launch file
+        - Global parameters, vectors, maps and constant params can not be configurable
+        - Global parameters, vectors and maps can not have a default, min or max value
+
+        :param self:
+        :param name: The Name of you new parameter
+        :param paramtype: The C++ type of this parameter. Can be any of ['std::string', 'int', 'bool', 'float', 'double'] or std::vector<...> or std::map<std::string, ...>
+        :param description: Choose an informative documentation string for this parameter.
+        :param level: (optional) Passed to dynamic_reconfigure
+        :param edit_method: (optional) Passed to dynamic_reconfigure
+        :param default: (optional) default value
+        :param min: (optional)
+        :param max: (optional)
+        :param configurable: (optional) Should this parameter be dynamic configurable
+        :param global_scope: (optional) If true, parameter is searched in global ('/') namespace instead of private ('~') ns
+        :param constant: (optional) If this is true, the parameter will not be fetched from param server, but the default value is kept.
+        :return: None
+
+ def add_enum(self, name, description, entry_strings, default=None):
+        Adds an enum to dynamic reconfigure
+        :param name: Name of enum parameter
+        :param description: Informative documentation string
+        :param entry_strings: Enum entries, must be strings! (will be numbered with increasing value)
+        :param default: Default value
+        :return:
+
+"""
+from rosinterface_handler.interface_generator_catkin import *
+
+gen = InterfaceGenerator()
+
+# ROS-specific
+gen.add("msg_queue_size", paramtype='int', description="Queusize for publisher", default=5, min=1)
+gen.add_verbosity_param(configurable=True)
+
+# Topics
+gen.add("base_path", paramtype='std::string', description="Path to the topic containing the image_topic and the disp_topic", default="in_topic")
+gen.add("image_topic", paramtype='std::string', description="Name of the image topic", default="image")
+gen.add("disp_topic", paramtype='std::string', description="Name of the disparity topic", default="disp")
+gen.add("pointcloud_topic", paramtype='std::string', description="Name of the output pointcloud", default="pointcloud")
+gen.add("info_topic", paramtype="std::string", description="Name of the camera info topic", default="camera_info")
+
+# Params
+gen.add("invalid_value", paramtype='int', description="Value in image to be seen as invalid (negative means inactive)", default=-1, min=-1, max=255, configurable=True, global_scope=False)
+gen.add("remap_in", paramtype='std::vector<int>', description="Map intensiy values (input), must be same size as output")
+gen.add("remap_out", paramtype='std::vector<int>', description="Map intensiy values (output), must be same size as input")
+gen.add("mask", paramtype='std::string', description="Path to a mask of same size as input image", default="")
+gen.add("base_width", paramtype='double', description="Overwrite base_width", default="-1", configurable=True)
+gen.add("focal_length", paramtype='double', description="Overwrite focal length", default="-1", configurable=True)
+
+
+# DO NOT TOUCH THIS LINE
+#Syntax : Package, Node, Config Name(The final name will be Disp2pointcloudConfig)
+exit(gen.generate("image_preproc_ros_tool", "disp2pointcloud", "Disp2pointcloud"))

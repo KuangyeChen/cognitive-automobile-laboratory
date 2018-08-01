@@ -1,0 +1,12 @@
+<launch>
+
+  <include file="$(find kitaf_navigation_ros_tool)/launch/kitaf_path_provider_node.launch" />
+  <include file="$(find kitaf_navigation_ros_tool)/launch/path_planning_node.launch" />
+
+  <include file="$(find map_creation_ros_tool)/launch/map_creation_node.launch" />
+
+  <include file="$(find kitaf_detector_ros_tool)/launch/kitaf_detector_node.launch" />
+
+  <include file="$(find kitaf_lateral_control_ros_tool)/launch/kitaf_controller_node.launch" />
+
+</launch>

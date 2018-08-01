@@ -1,0 +1,33 @@
+<package format="2">
+  <name>path_provider_ros_tool</name>
+  <version>1.0.0</version>
+  <description>ROS node for providing paths from rosbags.</description>
+
+  <license>Sascha Wirges</license>
+  <maintainer email="wirges@fzi.de">Sascha Wirges</maintainer>
+  <author email="wirges@fzi.de">Sascha Wirges</author>
+  <url type="repository">git@gitlab.mrt.uni-karlsruhe.de:kognitive_automobile_labor/path_provider_ros_tool.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <build_depend>rosparam_handler</build_depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <test_depend>gtest</test_depend>
+  <test_depend>rostest</test_depend>
+
+  <build_depend>roscpp</build_depend>
+  <depend>roslib</depend>
+  <depend>nodelet</depend>
+  
+  <depend>dynamic_reconfigure</depend>
+  <depend>eigen</depend>
+  <depend>eigen_conversions</depend>
+  <depend>rosbag</depend>
+  <depend>tf2_ros</depend>
+  <depend>utils_ros</depend>
+  
+  <export>
+    <nodelet plugin="${prefix}/nodelet_plugins.xml" />
+  </export>
+</package>

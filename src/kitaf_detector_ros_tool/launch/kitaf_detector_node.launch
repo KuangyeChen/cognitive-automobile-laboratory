@@ -1,0 +1,9 @@
+<launch>
+
+  <arg name="config" default="$(find kitaf_detector_ros_tool)/launch/params/kitaf_detector_parameters.yaml" />
+
+  <node pkg="kitaf_detector_ros_tool" type="kitaf_detector_node.py" name="kitaf_detector" output="screen">
+    <rosparam command="load" file="$(arg config)"/>
+    <param name="model" value="$(find kitaf_detector_ros_tool)/res/sign_detector/frozen_inference_graph.pb"/>
+  </node>
+</launch>

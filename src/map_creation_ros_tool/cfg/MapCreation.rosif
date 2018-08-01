@@ -1,0 +1,56 @@
+#!/usr/bin/env python
+"""
+Add your desired parameters here. All required headers will be generated from this.
+!!!IMPORTANT this file must be executable !!!
+
+Use one of these commands to add parameters to your parameter struct:
+
+def add(self, name, paramtype, description, level=0, edit_method='""', default=None, min=None, max=None, configurable=False, global_scope=False, constant=False):
+        Adds parameters to your parameter struct.
+
+def add_enum(self, name, description, entry_strings, default=None, paramtype='int'):
+        Adds an enum to dynamic reconfigure
+
+def add_group(self, name):
+        Create a parameter group for the dynamic_reconfigure window
+
+def add_publisher(self, name, message_type, description, default_topic="", default_queue_size=5, topic_param=None,
+                  queue_size_param=None, header=None, module=None, configurable=False, scope='private',
+                  constant=False):
+        Adds an initialized publisher to your parameter struct and parameter for its topic and queue size
+
+def add_subscriber(self, name, message_type, description, default_topic="", default_queue_size=5, no_delay=False,
+                   topic_param=None, queue_size_param=None, header=None, module=None, configurable=False,
+                   scope='private', constant=False):
+        Adds an initialized subscriber to your parameter struct and parameters for topic and queue size.
+
+
+For more information on the API, see here: https://gitlab.mrt.uni-karlsruhe.de/MRT/rosinterface_handler/blob/master/doc/HowToWriteYourFirstInterfaceFile.md
+"""
+from rosinterface_handler.interface_generator_catkin import *
+
+gen = InterfaceGenerator()
+
+# Add a parameter for changing verbosity (=log level) on the fly
+gen.add_verbosity_param(configurable=True)
+
+# Your Params here
+gen.add("map_height", paramtype='double', description="Map height in meters", default=6.0, global_scope=False)
+gen.add("map_width", paramtype='double', description="Map width in meters", default=6.0, global_scope=False)
+gen.add("resolution", paramtype='double', description="Resolution [m/cell]", default=0.10, global_scope=False)
+gen.add("origin_x", paramtype='double', description="Origin x", default=6.0, global_scope=False)
+gen.add("origin_y", paramtype='double', description="Origin y", default=0.0, global_scope=False)
+gen.add("weight_per_point", paramtype='double', description="How many probability per point",
+        default=1.0, min=0.1, max=10.0, configurable=True, global_scope=False)
+gen.add("update_threshold", paramtype='double', description="Update threshold",
+        default=20.0, min=0.1, max=10.0, configurable=True, global_scope=False)
+gen.add("model_confidence", paramtype='double', description="Update threshold",
+        default=80.0, min=50, max=100.0, configurable=True, global_scope=False)
+
+
+# Publisher and subscriber (group name will show up in dynamic_reconfigure window)
+
+
+# DO NOT TOUCH THIS LINE
+#Syntax : Package, Node, Config Name(The final name will be MapCreationConfig)
+exit(gen.generate("map_creation_ros_tool", "map_creation", "MapCreation"))

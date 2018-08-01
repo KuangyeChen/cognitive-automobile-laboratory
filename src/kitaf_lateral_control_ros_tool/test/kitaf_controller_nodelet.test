@@ -1,0 +1,6 @@
+<launch>
+
+    <test test-name="kitaf_controller_nodelet_test" pkg="kitaf_lateral_control_ros_tool" type="kitaf_controller_nodelet-test" time-limit="60.0"/>
+    <include file="$(find kitaf_lateral_control_ros_tool)/launch/kitaf_controller_nodelet.launch"/>
+</launch>
+

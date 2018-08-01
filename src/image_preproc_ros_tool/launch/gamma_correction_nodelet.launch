@@ -1,0 +1,24 @@
+<launch>
+
+    <arg name="nodelet_manager_name" default="nodelet_manager_gamma_correction"/>
+    <arg name="start_nodelet_manager" default="true"/>
+    <arg name="gamma" default="1.0" />
+    <arg name="auto_gamma" default="false" />
+    <arg name="camera_name" default="camera" />
+    <arg name="src_image" />
+    <arg name="tgt_image" />
+
+    <!-- Nodelet manager (if enabled) -->
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)" args="manager" output="screen"
+          if="$(arg start_nodelet_manager)"/>
+
+    <!-- GammaCorrection -->
+    <node pkg="nodelet" type="nodelet" name="gamma_correction_$(arg camera_name)"
+          args="load image_preproc_ros_tool/GammaCorrectionNodelet $(arg nodelet_manager_name)" output="screen" required="true">
+        <remap from="src/image" to="$(arg src_image)" />
+        <remap from="tgt/image" to="$(arg tgt_image)" />
+        <param name="gamma" value="$(arg gamma)" />
+        <param name="auto_gamma" value="$(arg auto_gamma)" />
+    </node>
+
+</launch>

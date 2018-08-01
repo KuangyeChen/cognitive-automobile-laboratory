@@ -1,0 +1,5 @@
+<launch>
+
+    <test test-name="path_provider_nodelet_test" pkg="demo_planning_ros_tool" type="path_provider_nodelet-test" time-limit="60.0"/>
+    <include file="$(find path_provider_ros_tool)/launch/path_provider_nodelet.launch"/>
+</launch>

@@ -1,0 +1,8 @@
+<launch>
+
+    <test test-name="disp2pointcloud_nodelet_test" pkg="image_preproc_ros_tool" type="disp2pointcloud_nodelet-test" time-limit="60.0"/>
+    <include file="$(find image_preproc_ros_tool)/launch/disp2pointcloud_nodelet.launch">
+    <arg name="image_path" value="/empty"/>
+    </include>
+</launch>
+

@@ -1,0 +1,5 @@
+<launch>
+  <include file="$(find vehicle_setup)/launch/camera_top.launch" />
+  <include file="$(find vehicle_setup)/launch/camera_front_right.launch" />
+  <include file="$(find vehicle_setup)/launch/camera_front_left.launch" />
+</launch>

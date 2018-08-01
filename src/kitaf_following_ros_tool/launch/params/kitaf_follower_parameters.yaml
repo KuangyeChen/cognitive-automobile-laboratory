@@ -1,0 +1,29 @@
+# Use this file to specify parameters, that do not have default values.
+# YAML Files can also be helpful if you want to save parameters for different use-cases.
+# In any way: Default values should go into the .if file!
+#
+# To generate a yaml file, use "rosrun rosinterface_handler generate_yaml /path/to/KitafFollower.if"
+#
+# Use 'key: value' pairs, e.g.
+# string: 'foo'
+# integer: 1234
+# float: 1234.5
+# boolean: true
+# vector: [1.0, 2.0, 3.4]
+# map: {"a": "b", "c": "d"}
+
+
+verbosity: debug
+
+velocity: 0.7
+wheel_base: 0.51
+msg_queue_size: 1
+frame_id_map: world
+frame_id_vehicle: vehicle_front_axle
+
+k_dis: 3
+k_yaw: 1
+distance: 1
+servo_topic: /motor_interface/servo_command
+motor_topic: /motor_interface/motor_command
+targetPose_topic: /target_pose

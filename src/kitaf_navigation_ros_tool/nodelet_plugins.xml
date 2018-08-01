@@ -1,0 +1,18 @@
+<library path="lib/libkitaf_path_provider_nodelet">
+<class name="kitaf_navigation_ros_tool/KitafPathProviderNodelet"
+       type="kitaf_navigation_ros_tool::KitafPathProviderNodelet" base_class_type="nodelet::Nodelet">
+  <description></description>
+</class>
+</library>
+<library path="lib/libpath_planning_nodelet">
+<class name="kitaf_navigation_ros_tool/PathPlanningNodelet"
+       type="kitaf_navigation_ros_tool::PathPlanningNodelet" base_class_type="nodelet::Nodelet">
+  <description></description>
+</class>
+</library>
+<library path="lib/libfilter_and_control_tar_nodelet">
+<class name="kitaf_navigation_ros_tool/FilterAndControlTarNodelet"
+       type="kitaf_navigation_ros_tool::FilterAndControlTarNodelet" base_class_type="nodelet::Nodelet">
+  <description></description>
+</class>
+</library>

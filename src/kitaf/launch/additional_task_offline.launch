@@ -1,0 +1,7 @@
+<launch>
+
+  <include file="$(find kitaf_detector_ros_tool)/launch/anicar_detector_node.launch" />
+
+  <include file="$(find kitaf_following_ros_tool)/launch/kitaf_follower_node.launch" />
+
+</launch>

@@ -1,0 +1,54 @@
+<package format="2">
+  <name>image_preproc_ros_tool</name>
+  <version>0.0.0</version>
+  <description>ToDo: Edit package description</description>
+
+  <license>GPLv3</license>
+  <maintainer email="johannes.graeter@kit.edu">Johannes Graeter</maintainer>
+  <author email="eike.rehder@kit.edu">Eike Rehder</author>
+  <author email="johannes.graeter@kit.edu">Johannes Graeter</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <test_depend>gtest</test_depend>
+
+  <build_depend>roscpp</build_depend>
+  <depend>dynamic_reconfigure</depend>
+  <!-- <build_depend>rospy</build_depend> Use this instead of roscpp  when writing a python node -->
+  <depend>rosinterface_handler</depend>
+  <depend>roslib</depend>
+  <depend>nodelet</depend>
+  <depend>mrt_opencv</depend>
+  <depend>cv_bridge</depend>
+  <depend>image_preproc</depend>
+  <depend>image_transport</depend>
+  <depend>utils_ros</depend>
+  <depend>pcl_ros</depend>
+  <depend>pcl_conversions</depend>
+  <depend>mrt_image_geometry_ros</depend>
+  <!-- 
+    Documentation for dependencies:
+    <build_depend>            Build-time dependency required to build 
+                              this package, e.g. boost, opencv.
+    <build_export_depend>     Exported build-time dependency required to 
+                              build packages that depend on this package,
+                              e.g. boost, opencv.
+    <exec_depend>             Execution dependency required to run this 
+                              package, e.g. boost, opencv.
+    <depend>                  Build-time, exported build-time and execution
+                              dependency. This is a bundled synonym for
+                              <build_depend>, <build_export_depend> and
+                              <exec_depend>.
+  -->
+  <!-- 
+    Example:
+    <depend>mrt_opencv</depend> 
+  -->
+  <test_depend>rostest</test_depend>
+  <depend>message_filters</depend>
+  <export>
+    <nodelet plugin="${prefix}/nodelet_plugins.xml" />
+  </export>
+</package>

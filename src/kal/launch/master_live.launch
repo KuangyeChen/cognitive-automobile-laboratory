@@ -1,0 +1,13 @@
+<launch>
+
+  <include file="$(find vehicle_setup)/launch/camera_top.launch" />
+  <include file="$(find vehicle_setup)/launch/localization.launch" />
+
+  <include file="$(find vehicle_setup)/launch/urdf_publisher.launch" />
+
+  <include file="$(find motor_interface_ros_tool)/launch/motor_interface_node.launch" />
+
+  <include file="$(find joy_converter_ros_tool)/launch/joystick.launch" />
+
+  <include file="$(find kal)/launch/kinect.launch" />
+</launch>

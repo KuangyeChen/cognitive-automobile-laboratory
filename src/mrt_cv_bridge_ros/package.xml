@@ -1,0 +1,19 @@
+<package format="2">
+  <name>mrt_cv_bridge_ros</name>
+  <version>1.11.8</version>
+  <description>
+    This contains CvBridge, which converts between ROS
+    Image messages and OpenCV images.
+  </description>
+  <author>Patrick Mihelich</author>
+  <author>James Bowman</author>
+  <maintainer email="fabian.poggenhans@kit.edu">Fabian Poggenhans</maintainer>
+  <license>BSD</license>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <depend>boost</depend>
+  <depend>mrt_opencv</depend>
+  <depend>rosconsole</depend>
+  <depend>sensor_msgs</depend>
+</package>

@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>stargazer_ros_tool</name>
+  <version>0.0.0</version>
+  <description>Stargazer ROS interface.</description>
+
+  <license>GPLv3</license>
+ <maintainer email="wirges@fzi.de">Sascha Wirges</maintainer>
+  <author email="claudio.bandera@kit.edu">Claudio Bandera</author>
+  <url type="repository">https://gitlab.mrt.uni-karlsruhe.de/MRT/stargazer_ros_tool.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <test_depend>gtest</test_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+
+  <build_depend>roscpp</build_depend>
+  <depend>nodelet</depend>
+
+  <depend>cv_bridge</depend>
+  <depend>geometry_msgs</depend>
+  <depend>image_transport</depend>
+  <depend>message_filters</depend>
+  <depend>mrt_ceres</depend>
+  <depend>rosbag</depend>
+  <depend>sensor_msgs</depend>
+  <depend>stargazer</depend>
+  <depend>std_msgs</depend>
+  <depend>tf2_geometry_msgs</depend>
+  <depend>tf2_ros</depend>
+  <depend>visualization_msgs</depend>
+  <depend>yaml-cpp</depend>
+
+  <export>
+    <nodelet plugin="${prefix}/nodelet_plugins.xml"/>
+  </export>
+</package>

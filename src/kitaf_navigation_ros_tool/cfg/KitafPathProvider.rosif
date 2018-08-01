@@ -1,0 +1,62 @@
+#!/usr/bin/env python
+"""
+Add your desired parameters here. All required headers will be generated from this.
+!!!IMPORTANT this file must be executable !!!
+
+Use one of these commands to add parameters to your parameter struct:
+
+def add(self, name, paramtype, description, level=0, edit_method='""', default=None, min=None, max=None, configurable=False, global_scope=False, constant=False):
+        Adds parameters to your parameter struct.
+
+def add_enum(self, name, description, entry_strings, default=None, paramtype='int'):
+        Adds an enum to dynamic reconfigure
+
+def add_group(self, name):
+        Create a parameter group for the dynamic_reconfigure window
+
+def add_publisher(self, name, message_type, description, default_topic="", default_queue_size=5, topic_param=None,
+                  queue_size_param=None, header=None, module=None, configurable=False, scope='private',
+                  constant=False):
+        Adds an initialized publisher to your parameter struct and parameter for its topic and queue size
+
+def add_subscriber(self, name, message_type, description, default_topic="", default_queue_size=5, no_delay=False,
+                   topic_param=None, queue_size_param=None, header=None, module=None, configurable=False,
+                   scope='private', constant=False):
+        Adds an initialized subscriber to your parameter struct and parameters for topic and queue size.
+
+
+For more information on the API, see here: https://gitlab.mrt.uni-karlsruhe.de/MRT/rosinterface_handler/blob/master/doc/HowToWriteYourFirstInterfaceFile.md
+"""
+from rosinterface_handler.interface_generator_catkin import *
+
+gen = InterfaceGenerator()
+
+# Add a parameter for changing verbosity (=log level) on the fly
+gen.add_verbosity_param(configurable=True)
+
+# Your Params her
+gen.add("sign_topic", paramtype='std::string', description="Input topic for traffic sign.", default='/direction_sign')
+gen.add("sign_queue_size", paramtype='int', description="Queue size for traffic sign.", default=5)
+gen.add("path_topic", paramtype='std::string', description="Output topic for path.", default='/path')
+gen.add("path_queue_size", paramtype='int', description="Queue size for Path.", default=1)
+gen.add("switch_timer_rate", paramtype='int', description="Rate path switch check.", default=20)
+gen.add("publish_timer_rate", paramtype='int', description="Publish rate for path.", default=1)
+gen.add("map_frame_id", paramtype='std::string', description="Frame id for map.", default='world')
+gen.add("vehicle_frame_id", paramtype='std::string', description="Frame id for vehicle.", default='vehicle')
+gen.add("start_watch_radius", paramtype='double', description="Only watch traffic sign when near enough to end point",
+        default=4.0, min=0.01, max=5.0, configurable=True, global_scope=False)
+gen.add("keep_forward_radius", paramtype='double', description="Keep forward when too close to end point",
+        default=0.2, min=0.01, max=5.0, configurable=True, global_scope=False)
+gen.add("exit_watch_radius", paramtype='double', description="Watch for exit when near exit point",
+        default=1.5, min=0.01, max=5.0, configurable=True, global_scope=False)
+gen.add("path_planning_srv", paramtype='std::string', description="Output topic for path.",
+        default='/shut_down_detection')
+gen.add("shut_detection_srv", paramtype='std::string', description="Output topic for path.",
+        default='/start_path_planning')
+gen.add("change_controller_srv", paramtype='std::string', description="Output topic for controller.",
+        default='/change_controller')
+
+
+# DO NOT TOUCH THIS LINE
+#Syntax : Package, Node, Config Name(The final name will be KitafPathProviderConfig)
+exit(gen.generate("kitaf_navigation_ros_tool", "kitaf_path_provider", "KitafPathProvider"))

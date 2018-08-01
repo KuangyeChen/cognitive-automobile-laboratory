@@ -1,0 +1,6 @@
+<library path="lib/libkitaf_follower_nodelet">
+<class name="kitaf_following_ros_tool/KitafFollowerNodelet"
+       type="kitaf_following_ros_tool::KitafFollowerNodelet" base_class_type="nodelet::Nodelet">
+  <description></description>
+</class>
+</library>

@@ -1,0 +1,52 @@
+<package>
+  <name>prosilica_driver</name>
+  <version>1.9.4</version>
+  <description>A ROS driver node for AVT/Prosilica Gigabit Ethernet (GigE) cameras.</description>
+  <maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
+
+  <license>BSD</license>
+
+  <url type="website">http://www.ros.org/wiki/prosilica_camera</url>
+  <!-- <url type="bugtracker"></url> -->
+
+  <author>Maintained by William Woodall - wwoodall@willowgarage.com</author>
+  <author>Contributions by Allison Thackston - allison.thackston@nasa.gov</author>
+
+  <buildtool_depend>catkin</buildtool_depend>
+
+  <build_depend>prosilica_gige_sdk</build_depend>
+  <build_depend>roscpp</build_depend>
+  <build_depend>std_msgs</build_depend>
+  <build_depend>sensor_msgs</build_depend>
+  <build_depend>diagnostic_updater</build_depend>
+  <build_depend>diagnostic_msgs</build_depend>
+  <build_depend>image_transport</build_depend>
+  <build_depend>self_test</build_depend>
+  <build_depend>driver_base</build_depend>
+  <build_depend>dynamic_reconfigure</build_depend>
+  <build_depend>camera_calibration_parsers</build_depend>
+  <build_depend>polled_camera</build_depend>
+  <build_depend>rosconsole</build_depend>
+  <build_depend>nodelet</build_depend>
+  <build_depend>nodelet_topic_tools</build_depend>
+
+  <run_depend>prosilica_gige_sdk</run_depend>
+  <run_depend>roscpp</run_depend>
+  <run_depend>std_msgs</run_depend>
+  <run_depend>sensor_msgs</run_depend>
+  <run_depend>diagnostic_updater</run_depend>
+  <run_depend>diagnostic_msgs</run_depend>
+  <run_depend>image_transport</run_depend>
+  <run_depend>self_test</run_depend>
+  <run_depend>driver_base</run_depend>
+  <run_depend>dynamic_reconfigure</run_depend>
+  <run_depend>camera_calibration_parsers</run_depend>
+  <run_depend>polled_camera</run_depend>
+  <run_depend>nodelet</run_depend>
+  <run_depend>nodelet_topic_tools</run_depend>
+  
+  <export>
+    <nodelet plugin="${prefix}/plugins/nodelet_plugins.xml" />
+  </export>
+
+</package>

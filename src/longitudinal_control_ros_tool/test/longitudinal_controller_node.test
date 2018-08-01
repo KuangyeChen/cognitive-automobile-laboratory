@@ -1,0 +1,8 @@
+<launch>
+    <!-- uncomment this if your unittest advertises /clock" -->
+    <!--<param name="/use_sim_time" value="True"/>-->
+
+    <test test-name="longitudinal_controller_node_test" pkg="longitudinal_control_ros_tool" type="longitudinal_controller_node-test" time-limit="60.0"/>
+    <include file="$(find longitudinal_control_ros_tool)/launch/longitudinal_controller_node.launch"/>
+</launch>
+

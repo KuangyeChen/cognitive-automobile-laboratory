@@ -1,0 +1,18 @@
+<package>
+   <name>prosilica_gige_sdk</name>
+   <version>1.26.3</version>
+   <description>AVT GigE SDK version 1.26 for ROS</description>
+   <maintainer email="namniart@gmail.com">Austin Hendrix</maintainer>
+
+   <license>Commercial</license>
+
+   <url type="website">http://www.ros.org/wiki/prosilica_gige_sdk</url>
+
+   <author>Allied Vision Technologies.</author>
+
+   <buildtool_depend>catkin</buildtool_depend>
+
+   <export>
+      <doxymaker external="http://www.alliedvisiontec.com/us/products/software/avt-pvapi-sdk.html"/>
+   </export>
+</package>

@@ -1,0 +1,28 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>vehicle_setup</name>
+  <version>0.0.0</version>
+  <description>ToDo: Edit package description</description>
+
+  <license>GPLv3</license>
+  <maintainer email="wechtc@gmail.com">wechtc@gmail.com</maintainer>
+  <author email="wechtc@gmail.com">wechtc@gmail.com</author>
+  <url type="repository">git@gitlab.mrt.uni-karlsruhe.de:kognitive_automobile_labor/vehicle_setup.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <test_depend>gtest</test_depend>
+  
+  <depend>prosilica_driver</depend>
+  <depend>stargazer_ros_tool</depend>
+  <depend>robot_state_publisher</depend>
+  <depend>tf2_ros</depend>
+  <depend>stereo_image_proc</depend>
+  <depend>image_view</depend>
+  <depend>hector_trajectory_server</depend>
+  <depend>image_preproc_ros_tool</depend>
+  
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>

@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<robot name="Kitaf_Anicar">
+
+  <link name="vehicle_front_axle">
+  </link>
+
+  <link name="vehicle_rear_axle">
+  </link>
+
+  <link name="kinect2_ir_optical_frame">
+  </link>
+
+  <link name="kinect2_rgb_optical_frame">
+  </link>
+
+  <joint name="vehicle_front_axle_to_vehicle_rear_axle" type="fixed">
+    <parent link="vehicle_front_axle" />
+    <child link="vehicle_rear_axle" />
+    <origin xyz="-0.51 0 0" />
+  </joint>
+
+  <joint name="kinect2_ir_optical_frame" type="fixed">
+    <parent link="vehicle_front_axle" />
+    <child link="kinect2_ir_optical_frame" />
+    <origin xyz="0.1 -0.07 0.3" rpy="-1.570796 0 -1.570796" />
+  </joint>
+
+  <joint name="kinect2_rgb_optical_frame" type="fixed">
+    <parent link="kinect2_ir_optical_frame" />
+    <child link="kinect2_rgb_optical_frame" />
+    <origin xyz="0.055 0.0 0.0" rpy="0 0 0" />
+  </joint>
+</robot>

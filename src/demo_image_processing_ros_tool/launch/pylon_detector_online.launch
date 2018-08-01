@@ -1,0 +1,25 @@
+<launch>
+
+  <!-- Arguments -->
+  <arg name="car_name" default="$(env CAR_NAME)" doc="Set the CAR_NAME environment variable to 'anicar2' or 'anicar3' prior to starting this launch file" />
+
+  <include file="$(find motor_interface_ros_tool)/launch/motor_interface_node.launch" /> 
+
+  <include file="$(find joy_converter_ros_tool)/launch/joystick.launch" />
+
+  <include file="$(find vehicle_setup)/launch/urdf_publisher.launch" />
+
+  <include file="$(find kal)/launch/kinect.launch" />
+
+  <!-- Pylon detector -->
+  <node pkg="demo_image_processing_ros_tool" type="pylon_detector" name="pylon_detector" output="screen">
+    <rosparam command="load" file="$(find demo_image_processing_ros_tool)/launch/params/pylon_detector.yaml"/>
+  </node>
+  
+  <!-- Visualization -->
+  <node pkg="rviz" type="rviz" output="screen" name="rviz" args="-d $(find demo_image_processing_ros_tool)/res/pylon_detector.rviz" />
+  
+  <!-- Reconfiguration -->
+  <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure"/>
+
+</launch>

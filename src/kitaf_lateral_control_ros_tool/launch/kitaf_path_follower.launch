@@ -1,0 +1,20 @@
+<launch>
+  <include file="$(find kitaf_lateral_control_ros_tool)/launch/kitaf_controller_node.launch"/>
+
+  <!-- Visualization -->
+  <include file="$(find stargazer_ros_tool)/launch/landmark_visualizer.launch" >
+    <arg name="start_rviz" value="false" />
+    <arg name="stargazer_config" value="$(find vehicle_setup)/launch/params/$(arg car_name)/stargazer_optimized.yaml"/>
+  </include>
+  <node pkg="hector_trajectory_server" type="hector_trajectory_server" name="trajectory_server" >
+    <param name="target_frame_name" type="string" value="world" />
+    <param name="source_frame_name" type="string" value="vehicle_front_axle" />
+    <param name="trajectory_update_rate" type="double" value="30.0" />
+    <param name="trajectory_publish_rate" type="double" value="30.0" />
+  </node>
+  <node pkg="rviz" type="rviz" output="screen" name="rviz" args="-d $(find path_provider_ros_tool)/res/path_provider.rviz" />
+
+  <!-- Reconfiguration -->
+  <node pkg="rqt_reconfigure" type="rqt_reconfigure" name="rqt_reconfigure"/>
+
+</launch>

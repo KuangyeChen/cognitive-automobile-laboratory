@@ -1,0 +1,9 @@
+<launch>
+
+  <arg name="config" default="$(find map_creation_ros_tool)/launch/params/map_creation_parameters.yaml" />
+
+  <node pkg="map_creation_ros_tool" type="map_creation" name="map_creation" output="screen">
+    <rosparam command="load" file="$(arg config)"/>
+  </node>
+
+</launch>

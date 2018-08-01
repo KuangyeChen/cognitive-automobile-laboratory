@@ -1,0 +1,23 @@
+# Use this file to specify parameters, that do not have default values.
+# YAML Files can also be helpfull if you want to save parameters for different use-cases.
+# In any way: Default values should go into the .mrtcfg file!
+#
+# Use 'key: value' pairs, e.g.
+# string: 'foo'
+# integer: 1234
+# float: 1234.5
+# boolean: true
+# vector: [1.0, 2.0, 3.4]
+# map: {"a": "b", "c": "d"}
+
+msg_queue_size: 5
+verbosity: info
+
+topic_publisher: /path
+
+timer_rate: 5
+bag_file_name: /tmp/bag
+frame_id_map: stargazer
+frame_id_vehicle: vehicle_front_axle
+frame_id_camera: camera_top
+frame_id_stargazer: stargazer

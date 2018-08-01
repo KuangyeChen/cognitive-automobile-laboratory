@@ -1,0 +1,6 @@
+<launch>
+
+  <include file="$(find vehicle_setup)/launch/localization.launch" />
+
+  <include file="$(find vehicle_setup)/launch/urdf_publisher.launch" />
+</launch>

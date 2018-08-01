@@ -1,0 +1,6 @@
+<launch>
+
+    <test test-name="vehicle_simulator_nodelet_test" pkg="simulation_ros_tool" type="vehicle_simulator_nodelet-test" time-limit="60.0"/>
+    <include file="$(find simulation_ros_tool)/launch/vehicle_simulator_nodelet.launch"/>
+</launch>
+

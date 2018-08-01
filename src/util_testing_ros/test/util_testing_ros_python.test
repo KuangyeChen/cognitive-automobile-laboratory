@@ -1,0 +1,4 @@
+<launch>
+  <param name="/use_sim_time" value="true"/>
+  <test test-name="util_testing_ros_python" pkg="util_testing_ros" type="util_testing_ros_python.py" time-limit="60.0" />
+</launch>

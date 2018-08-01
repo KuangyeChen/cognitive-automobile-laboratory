@@ -1,0 +1,61 @@
+#!/usr/bin/env python
+"""
+Add your desired parameters here. All required headers will be generated from this.
+!!!IMPORTANT this file must be executable !!!
+
+Use one of these commands to add parameters to your parameter struct.
+
+ def add(self, name, paramtype, description, level=0, edit_method='""', default=None, min=None, max=None, configurable=False, global_scope=False, constant=False):
+        Adds parameters to your parameter struct.
+
+        - If no default value is given, you need to specify one in your launch file
+        - Global parameters, vectors, maps and constant params can not be configurable
+        - Global parameters, vectors and maps can not have a default, min or max value
+
+        :param self:
+        :param name: The Name of you new parameter
+        :param paramtype: The C++ type of this parameter. Can be any of ['std::string', 'int', 'bool', 'float', 'double'] or std::vector<...> or std::map<std::string, ...>
+        :param description: Choose an informative documentation string for this parameter.
+        :param level: (optional) Passed to dynamic_reconfigure
+        :param edit_method: (optional) Passed to dynamic_reconfigure
+        :param default: (optional) default value
+        :param min: (optional)
+        :param max: (optional)
+        :param configurable: (optional) Should this parameter be dynamic configurable
+        :param global_scope: (optional) If true, parameter is searched in global ('/') namespace instead of private ('~') ns
+        :param constant: (optional) If this is true, the parameter will not be fetched from param server, but the default value is kept.
+        :return: None
+
+ def add_enum(self, name, description, entry_strings, default=None):
+        Adds an enum to dynamic reconfigure
+        :param name: Name of enum parameter
+        :param description: Informative documentation string
+        :param entry_strings: Enum entries, must be strings! (will be numbered with increasing value)
+        :param default: Default value
+        :return:
+
+"""
+from mrt_cmake_modules.parameter_generator_catkin import *
+
+gen = ParameterGenerator()
+
+# ROS-specific
+gen.add("verbosity", paramtype='std::string', description="Set logger level for this node", default="info")
+gen.add("msg_queue_size", paramtype='int', description="queue size of the motor command subscriber", default=1)
+
+# Your Params here
+gen.add("motor_command_topic", paramtype='std::string', description="Topicname for motor command subscriber", default="motor_command")
+gen.add("servo_command_topic", paramtype='std::string', description="Topicname for servo command subscriber", default="servo_command")
+gen.add("wheel_base", paramtype='double', description="cars wheel_base", default=0.5, min=0, max=1, configurable=True, global_scope=False)
+gen.add("tf_refresh_rate", paramtype='double', description="rate to refresh the transformation at", default=60, min=0, max=100, configurable=True, global_scope=False)
+gen.add("map_frame", paramtype='std::string', description="frame of the map (e.g. 'world')", default="world" )
+gen.add("vehicle_frame", paramtype='std::string', description="frame of the vehicles rear axle (e.g. 'vehicle_rear_axle')", default="vehicle_rear_axle")
+gen.add("initial_x", paramtype='double', description="initial x value of the pose", default=0.0)
+gen.add("initial_y", paramtype='double', description="initial y value of the pose", default=0.0)
+gen.add("initial_yaw", paramtype='double', description="initial yaw angle of the pose", default=0.0)
+
+
+
+# DO NOT TOUCH THIS LINE
+#Syntax : Package, Node, Config Name(The final name will be VehicleSimulatorConfig)
+exit(gen.generate("simulation_ros_tool", "vehicle_simulator", "VehicleSimulator"))

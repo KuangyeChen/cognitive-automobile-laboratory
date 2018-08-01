@@ -1,0 +1,11 @@
+<launch>
+
+  <arg name="bag_file" default="$(find stargazer_ros_tool)/res/Stargazer.bag"/>
+  <arg name="undistorted_image_topic" default="/image_undistorted"/>
+  <arg name="landmark_topic" default="/landmarks_seen"/>
+  <arg name="pose_topic" default="/stargazer/camera_pose"/>
+
+  <node pkg="rosbag" type="record" name="recorder" output="screen"
+        args="-O $(arg bag_file) $(arg landmark_topic) $(arg pose_topic) $(arg undistorted_image_topic)"/>
+
+</launch>

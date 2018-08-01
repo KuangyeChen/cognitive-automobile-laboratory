@@ -1,0 +1,18 @@
+<launch>
+
+    <arg name="config" default="$(find image_preproc_ros_tool)/launch/params/label_dilation_parameters.yaml"/>
+    <arg name="nodelet_manager_name" default="nodelet_manager_label_dilation"/>
+    <arg name="start_nodelet_manager" default="true"/>
+    <arg name="nodelet_name" default="label_dilation"/>
+
+    <!-- Nodelet manager (if enabled) -->
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)" args="manager" output="screen"
+          if="$(arg start_nodelet_manager)"/>
+
+    <!-- LabelDilation -->
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_name)"
+          args="load image_preproc_ros_tool/LabelDilationNodelet $(arg nodelet_manager_name)" output="screen" required="true">
+        <rosparam command="load" file="$(arg config)"/>
+    </node>
+
+</launch>

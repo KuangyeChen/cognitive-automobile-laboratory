@@ -1,0 +1,11 @@
+<launch>
+
+  <arg name="config" default="$(find simulation_ros_tool)/launch/params/vehicle_simulator_parameters.yaml" />
+
+  <node pkg="simulation_ros_tool" type="vehicle_simulator" name="vehicle_simulator" output="screen">
+    <rosparam command="load" file="$(arg config)"/>
+    <remap from="/vehicle_simulator/motor_command" to="/motor_interface/motor_command" />
+    <remap from="/vehicle_simulator/servo_command" to="/motor_interface/servo_command" />
+  </node>
+
+</launch>

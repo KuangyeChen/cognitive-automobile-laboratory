@@ -1,0 +1,31 @@
+# Use this file to specify parameters, that do not have default values.
+# YAML Files can also be helpful if you want to save parameters for different use-cases.
+# In any way: Default values should go into the .if file!
+#
+# To generate a yaml file, use "rosrun rosinterface_handler generate_yaml /path/to/PathPlanning.if"
+#
+# Use 'key: value' pairs, e.g.
+# string: 'foo'
+# integer: 1234
+# float: 1234.5
+# boolean: true
+# vector: [1.0, 2.0, 3.4]
+# map: {"a": "b", "c": "d"}
+
+verbosity: info
+map_topic: /map
+map_queue_size: 2
+path_topic: /path
+service_name: /start_path_planning
+path_queue_size: 1
+update_path_rate: 20
+publish_path_rate: 5
+map_frame_id: world
+vehicle_frame_id: vehicle_front_axle
+planning_margin: 0.4
+probability_threshold: 90
+search_width: 0.08
+search_density: 0.001
+search_interval: 0.08
+effect_range: 0.35
+momentum: 0.8

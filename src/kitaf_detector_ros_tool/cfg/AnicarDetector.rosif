@@ -1,0 +1,64 @@
+#!/usr/bin/env python
+"""
+Add your desired parameters here. All required headers will be generated from this.
+!!!IMPORTANT this file must be executable !!!
+
+Use one of these commands to add parameters to your parameter struct:
+
+def add(self, name, paramtype, description, level=0, edit_method='""', default=None, min=None, max=None, configurable=False, global_scope=False, constant=False):
+        Adds parameters to your parameter struct.
+
+def add_enum(self, name, description, entry_strings, default=None, paramtype='int'):
+        Adds an enum to dynamic reconfigure
+
+def add_group(self, name):
+        Create a parameter group for the dynamic_reconfigure window
+
+def add_publisher(self, name, message_type, description, default_topic="", default_queue_size=5, topic_param=None,
+                  queue_size_param=None, header=None, module=None, configurable=False, scope='private',
+                  constant=False):
+        Adds an initialized publisher to your parameter struct and parameter for its topic and queue size
+
+def add_subscriber(self, name, message_type, description, default_topic="", default_queue_size=5, no_delay=False,
+                   topic_param=None, queue_size_param=None, header=None, module=None, configurable=False,
+                   scope='private', constant=False):
+        Adds an initialized subscriber to your parameter struct and parameters for topic and queue size.
+
+
+For more information on the API, see here: https://gitlab.mrt.uni-karlsruhe.de/MRT/rosinterface_handler/blob/master/doc/HowToWriteYourFirstInterfaceFile.md
+"""
+from rosinterface_handler.interface_generator_catkin import *
+
+gen = InterfaceGenerator()
+
+# Add a parameter for changing verbosity (=log level) on the fly
+gen.add_verbosity_param(configurable=True)
+
+# Your Params here
+gen.add("color_image_topic", paramtype='std::string', description="Color image input topic",
+        default='/kinect2/qhd/image_color_rect')
+gen.add("depth_image_topic", paramtype='std::string', description="Depth image input topic",
+        default='/kinect2/qhd/image_depth_rect')
+gen.add("camera_info_topic", paramtype='std::string', description="Camera info input topic",
+        default='/kinect2/qhd/camera_info')
+gen.add("image_publish_topic", paramtype='std::string', description="Output topic for annotated image",
+        default='/detections_image')
+gen.add("pose_publish_topic", paramtype='std::string', description="Output topic for path",
+        default='/target_pose')
+gen.add("points_publish_topic", paramtype='std::string', description="Output topic for traffic cone signal",
+        default='/detection_points')
+gen.add("detect_score_threshold", paramtype='double', description="Only consider detections with score > threshold",
+        default=0.3, min=0.1, max=1.0, configurable=True, global_scope=False)
+gen.add("publish_image", paramtype='bool', description="Whether publish annotated image or not",
+        default=True, configurable=True, global_scope=False)
+gen.add("process_rate", paramtype='int', description="Process one frame in every n frames",
+        default=3, min=1, max=15, configurable=True, global_scope=False)
+gen.add("map_frame_id", paramtype='std::string', description="Map frame id",
+        default='world')
+gen.add("vehicle_frame_id", paramtype='std::string', description="vehicle frame id",
+        default='vehicle_front_axle')
+
+
+# DO NOT TOUCH THIS LINE
+#Syntax : Package, Node, Config Name(The final name will be AnicarDetectorConfig)
+exit(gen.generate("kitaf_detector_ros_tool", "anicar_detector", "AnicarDetector"))

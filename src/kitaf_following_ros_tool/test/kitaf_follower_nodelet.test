@@ -1,0 +1,6 @@
+<launch>
+
+    <test test-name="kitaf_follower_nodelet_test" pkg="kitaf_following_ros_tool" type="kitaf_follower_nodelet-test" time-limit="60.0"/>
+    <include file="$(find kitaf_following_ros_tool)/launch/kitaf_follower_nodelet.launch"/>
+</launch>
+

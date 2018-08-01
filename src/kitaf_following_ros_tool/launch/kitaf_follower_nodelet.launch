@@ -1,0 +1,18 @@
+<launch>
+
+    <arg name="config" default="$(find kitaf_following_ros_tool)/launch/params/kitaf_follower_parameters.yaml"/>
+    <arg name="nodelet_manager_name" default="nodelet_manager_kitaf_follower"/>
+    <arg name="start_nodelet_manager" default="true"/>
+    <arg name="nodelet_name" default="kitaf_follower"/>
+
+    <!-- Nodelet manager (if enabled) -->
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)" args="manager" output="screen"
+          if="$(arg start_nodelet_manager)"/>
+
+    <!-- KitafFollower -->
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_name)"
+          args="load kitaf_following_ros_tool/KitafFollowerNodelet $(arg nodelet_manager_name)" output="screen" required="true">
+        <rosparam command="load" file="$(arg config)"/>
+    </node>
+
+</launch>

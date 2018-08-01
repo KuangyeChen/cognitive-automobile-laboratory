@@ -1,0 +1,6 @@
+<library path="lib/libvehicle_simulator_nodelet">
+<class name="simulation_ros_tool/VehicleSimulatorNodelet"
+       type="simulation_ros_tool::VehicleSimulatorNodelet" base_class_type="nodelet::Nodelet">
+  <description></description>
+</class>
+</library>

@@ -1,0 +1,54 @@
+<package format="2">
+  <name>demo_image_processing_ros_tool</name>
+  <version>1.0.0</version>
+  <description>ROS demo nodes on how to work with images.</description>
+
+  <license>MRT/FZI</license>
+  <maintainer email="wirges@fzi.de">Sascha Wirges</maintainer>
+  <author email="wirges@fzi.de">Sascha Wirges</author>
+  <url type="repository">git@gitlab.mrt.uni-karlsruhe.de:kognitive_automobile_labor/demo_image_processing_ros_tool.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <build_depend>rosparam_handler</build_depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <test_depend>gtest</test_depend>
+  <test_depend>rostest</test_depend>
+
+  <build_depend>roscpp</build_depend>
+  <!-- <build_depend>rospy</build_depend> Use this instead of roscpp  when writing a python node -->
+  <depend>roslib</depend>
+  <depend>nodelet</depend>
+
+  <!--
+    Documentation for dependencies:
+    <build_depend>            Build-time dependency required to build
+                              this package, e.g. boost, opencv.
+    <build_export_depend>     Exported build-time dependency required to
+                              build packages that depend on this package,
+                              e.g. boost, opencv.
+    <exec_depend>             Execution dependency required to run this
+                              package, e.g. boost, opencv.
+    <depend>                  Build-time, exported build-time and execution
+                              dependency. This is a bundled synonym for
+                              <build_depend>, <build_export_depend> and
+                              <exec_depend>.
+  -->
+  <!--
+    Example:
+    <depend>mrt_opencv</depend>
+  -->
+
+  <depend>diagnostic_updater</depend>
+  <depend>dynamic_reconfigure</depend>
+  <depend>image_transport</depend>
+  <depend>motor_interface_ros_tool</depend>
+  <depend>mrt_cv_bridge_ros</depend>
+  <depend>tf2_ros</depend>
+  <depend>utils_ros</depend>
+  
+  <export>
+    <nodelet plugin="${prefix}/nodelet_plugins.xml" /><!-- Other tools can request additional information be placed here -->
+  </export>
+</package>

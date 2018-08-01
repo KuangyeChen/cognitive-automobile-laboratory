@@ -1,0 +1,5 @@
+<launch> 
+  <param name="robot_description" textfile="$(find vehicle_setup)/res/anicar.urdf" />
+  <node pkg="robot_state_publisher" type="robot_state_publisher" name="rob_st_pub" >
+  </node>
+</launch>

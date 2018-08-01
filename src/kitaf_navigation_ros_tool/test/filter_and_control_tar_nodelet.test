@@ -1,0 +1,6 @@
+<launch>
+
+    <test test-name="filter_and_control_tar_nodelet_test" pkg="kitaf_navigation_ros_tool" type="filter_and_control_tar_nodelet-test" time-limit="60.0"/>
+    <include file="$(find kitaf_navigation_ros_tool)/launch/filter_and_control_tar_nodelet.launch"/>
+</launch>
+

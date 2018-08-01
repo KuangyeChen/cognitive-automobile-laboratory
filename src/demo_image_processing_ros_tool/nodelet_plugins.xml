@@ -1,0 +1,6 @@
+<library path="lib/libpylon_detector_nodelet">
+<class name="demo_image_processing_ros_tool/PylonDetectorNodelet"
+       type="demo_image_processing_ros_tool::PylonDetectorNodelet" base_class_type="nodelet::Nodelet">
+  <description></description>
+</class>
+</library>

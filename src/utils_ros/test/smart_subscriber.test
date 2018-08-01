@@ -1,0 +1,5 @@
+<launch>
+  <node name="subscribe" pkg="rostopic" type="rostopic" args="echo -n 20 /output"/>
+  <node name="advertise" pkg="rostopic" type="rostopic" args="pub -r 10 /input std_msgs/Int32 0"/>
+  <test test-name="smart_subscriber_test" pkg="utils_ros" type="smart_subscriber-test" name="smart_subscriber"/>
+</launch>

@@ -1,0 +1,5 @@
+# place this in /etc/udev/rules.d/ to set access permissions of /dev/usb/iowarrior* for user group dialout 
+
+KERNEL=="iowarrior*", NAME="usb/iowarrior%n", GROUP="dialout", MODE="770"
+
+

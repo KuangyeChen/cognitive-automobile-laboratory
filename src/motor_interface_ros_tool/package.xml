@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>motor_interface_ros_tool</name>
+  <version>1.0.0</version>
+  <description>ROS motor control interface.</description>
+
+  <license>GPLv3</license>
+  <maintainer email="wechtc@gmail.com">Christopher Wecht</maintainer>
+  <author email="wechtc@gmail.com">Christopher Wecht</author>
+  <url type="repository">git@gitlab.mrt.uni-karlsruhe.de:kognitive_automobile_labor/motor_interface_ros_tool.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <test_depend>gtest</test_depend>
+
+  <build_depend>roscpp</build_depend>
+  <depend>utils_ros</depend>
+  <depend>roslib</depend>
+  <depend>nodelet</depend>
+  <depend>motor_interface</depend>
+  <depend>boost</depend>
+
+  <export>
+  </export>
+</package>

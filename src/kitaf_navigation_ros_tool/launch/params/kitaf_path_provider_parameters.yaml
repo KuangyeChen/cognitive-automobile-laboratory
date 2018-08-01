@@ -1,0 +1,29 @@
+# Use this file to specify parameters, that do not have default values.
+# YAML Files can also be helpful if you want to save parameters for different use-cases.
+# In any way: Default values should go into the .if file!
+#
+# To generate a yaml file, use "rosrun rosinterface_handler generate_yaml /path/to/KitafPathProvider.if"
+#
+# Use 'key: value' pairs, e.g.
+# string: 'foo'
+# integer: 1234
+# float: 1234.5
+# boolean: true
+# vector: [1.0, 2.0, 3.4]
+# map: {"a": "b", "c": "d"}
+
+verbosity: info
+sign_topic: /direction_sign
+sign_queue_size: 5
+path_topic: /path
+path_queue_size: 1
+switch_timer_rate: 20
+publish_timer_rate: 1
+map_frame_id: world
+vehicle_frame_id: vehicle_front_axle
+start_watch_radius: 4.0
+keep_forward_radius: 0.2
+exit_watch_radius: 1.5
+path_planning_srv: /shut_down_detection
+shut_detection_srv: /start_path_planning
+change_controller_srv: /change_controller

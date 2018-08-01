@@ -1,0 +1,6 @@
+<launch>
+
+    <test test-name="map_creation_nodelet_test" pkg="map_creation_ros_tool" type="map_creation_nodelet-test" time-limit="60.0"/>
+    <include file="$(find map_creation_ros_tool)/launch/map_creation_nodelet.launch"/>
+</launch>
+

@@ -1,0 +1,13 @@
+<launch>
+  <arg name="rosbag_prefix" default="" /> 
+  <node pkg="rosbag" type="record" name="recorder" output="screen"
+        args="-o $(env PWD)/$(arg rosbag_prefix)
+	     /kinect2/sd/points
+	     /kinect2/sd/image_depth_rect
+	     /kinect2/sd/camera_info
+	     /kinect2/hd/image_color_rect
+	     /kinect2/hd/camera_info
+             /sensors/camera/top/image_raw
+             /sensors/camera/top/camera_info
+  "/>
+</launch>

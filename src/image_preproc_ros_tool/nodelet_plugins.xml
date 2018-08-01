@@ -1,0 +1,27 @@
+<library path="lib/libgamma_correction_nodelet">
+  <class name="image_preproc_ros_tool/GammaCorrectionNodelet" type="image_preproc_ros_tool::GammaCorrectionNodelet" base_class_type="nodelet::Nodelet">
+    <description>
+
+    </description>
+  </class>
+</library>
+
+<library path="lib/libresize_nodelet">
+  <class name="image_preproc_ros_tool/ResizeNodelet" type="image_preproc_ros_tool::ResizeNodelet" base_class_type="nodelet::Nodelet">
+    <description>
+
+    </description>
+  </class>
+</library>
+<library path="lib/libdisp2pointcloud_nodelet">
+<class name="image_preproc_ros_tool/Disp2pointcloudNodelet"
+       type="image_preproc_ros_tool::Disp2pointcloudNodelet" base_class_type="nodelet::Nodelet">
+  <description></description>
+</class>
+</library>
+<library path="lib/liblabel_dilation_nodelet">
+<class name="image_preproc_ros_tool/LabelDilationNodelet"
+       type="image_preproc_ros_tool::LabelDilationNodelet" base_class_type="nodelet::Nodelet">
+  <description></description>
+</class>
+</library>

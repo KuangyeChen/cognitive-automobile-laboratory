@@ -1,0 +1,5 @@
+<launch>
+  <!-- use this like a normal launch file to set up your test environment. The test tag below is used to launch your unittest node-->
+  <param name="/use_sim_time" value="true"/>
+  <test test-name="test_util_testing_ros" pkg="util_testing_ros" type="util_testing_ros-test" />
+</launch>

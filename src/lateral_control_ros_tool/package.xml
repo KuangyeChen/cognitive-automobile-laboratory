@@ -1,0 +1,33 @@
+<package format="2">
+  <name>lateral_control_ros_tool</name>
+  <version>0.0.0</version>
+  <description>ToDo: Edit package description</description>
+
+  <license>contact-the-maintainer</license>
+  <maintainer email="wirges@fzi.de">Sascha Wirges</maintainer>
+  <author email="wirges@fzi.de">Sascha Wirges</author>
+  <url type="repository">https://gitlab.mrt.uni-karlsruhe.de/kognitive_automobile_labor/lateral_control_ros_tool.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <build_depend>rosparam_handler</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>eigen</build_depend>
+  <build_depend>tf2_ros</build_depend>
+  <build_depend>tf2_eigen</build_depend>
+  <build_depend>roscpp</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <test_depend>gtest</test_depend>
+  <test_depend>rostest</test_depend>
+
+  <depend>roslib</depend>
+  <depend>nodelet</depend>
+  <depend>utils_ros</depend>
+  <depend>dynamic_reconfigure</depend>
+
+  <depend>motor_interface_ros_tool</depend>
+
+  <export>
+    <nodelet plugin="${prefix}/nodelet_plugins.xml" /><!-- Other tools can request additional information be placed here -->
+  </export>
+</package>

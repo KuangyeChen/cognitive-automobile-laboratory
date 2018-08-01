@@ -1,0 +1,7 @@
+<launch>
+
+  <node name="sign_detection_launcher" pkg="kitaf" type="launch_anicar_detection.sh" args="$(find kitaf)" />
+
+  <include file="$(find kitaf_following_ros_tool)/launch/kitaf_follower_node.launch" />
+
+</launch>

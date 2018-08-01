@@ -1,0 +1,22 @@
+<launch>
+  <arg name="stargazer_config" default="$(find stargazer_ros_tool)/res/stargazer_optimized.yaml"/>
+  <arg name="bag_file" default="$(find stargazer_ros_tool)/res/Stargazer.bag_optimized.bag"/>
+
+  <!--Visualizer-->
+  <include file="$(find stargazer_ros_tool)/launch/landmark_visualizer.launch">
+    <arg name="stargazer_config" value="$(arg stargazer_config)"/>
+    <arg name="start_rviz" value="false"/>
+  </include>
+  <include file="$(find stargazer_ros_tool)/launch/pose_visualizer.launch">
+    <arg name="bag_file" value="$(arg bag_file)"/>
+    <arg name="stargazer_config" value="$(find stargazer_ros_tool)/res/stargazer.yaml"/>
+    <arg name="pose_pub_topic" value="/poses"/>
+    <arg name="start_rviz" value="true"/>
+  </include>
+  <include file="$(find stargazer_ros_tool)/launch/pose_visualizer.launch">
+    <arg name="bag_file" value="$(arg bag_file)"/>
+    <arg name="stargazer_config" value="$(find stargazer_ros_tool)/res/stargazer_optimized.yaml"/>
+    <arg name="pose_pub_topic" value="/poses_optimized"/>
+    <arg name="start_rviz" value="false"/>
+  </include>
+</launch>

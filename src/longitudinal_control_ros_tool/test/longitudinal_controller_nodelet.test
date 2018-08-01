@@ -1,0 +1,6 @@
+<launch>
+
+    <test test-name="longitudinal_controller_nodelet_test" pkg="longitudinal_control_ros_tool" type="longitudinal_controller_nodelet-test" time-limit="60.0"/>
+    <include file="$(find longitudinal_control_ros_tool)/launch/longitudinal_controller_nodelet.launch"/>
+</launch>
+

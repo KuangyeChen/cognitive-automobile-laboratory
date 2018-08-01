@@ -1,0 +1,6 @@
+<launch>
+
+    <test test-name="path_planning_nodelet_test" pkg="kitaf_navigation_ros_tool" type="path_planning_nodelet-test" time-limit="60.0"/>
+    <include file="$(find kitaf_navigation_ros_tool)/launch/path_planning_nodelet.launch"/>
+</launch>
+

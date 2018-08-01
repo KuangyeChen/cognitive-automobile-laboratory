@@ -1,0 +1,10 @@
+<launch> 
+  <!-- Default values -->
+  <arg name="pose_topic" default="/stargazer/camera_pose"/>
+  <arg name="car_name" default="$(env CAR_NAME)" />
+
+  <include file="$(find stargazer_ros_tool)/launch/upload_intrinsics.launch" >
+    <arg name="stargazer_cfg_file" value="$(find vehicle_setup)/launch/params/$(arg car_name)/stargazer_optimized.yaml" />
+    <arg name="camera_ns" value="/sensors/camera/top" />
+  </include>
+</launch>

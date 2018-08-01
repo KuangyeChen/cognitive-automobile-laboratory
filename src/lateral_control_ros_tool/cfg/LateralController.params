@@ -1,0 +1,68 @@
+#!/usr/bin/env python
+"""
+Add your desired parameters here. All required headers will be generated from this.
+!!!IMPORTANT this file must be executable !!!
+
+Use one of these commands to add parameters to your parameter struct.
+
+ def add(self, name, paramtype, description, level=0, edit_method='""', default=None, min=None, max=None, configurable=False, global_scope=False, constant=False):
+        Adds parameters to your parameter struct.
+
+        - If no default value is given, you need to specify one in your launch file
+        - Global parameters, vectors, maps and constant params can not be configurable
+        - Global parameters, vectors and maps can not have a default, min or max value
+
+        :param self:
+        :param name: The Name of you new parameter
+        :param paramtype: The C++ type of this parameter. Can be any of ['std::string', 'int', 'bool', 'float', 'double'] or std::vector<...> or std::map<std::string, ...>
+        :param description: Choose an informative documentation string for this parameter.
+        :param level: (optional) Passed to dynamic_reconfigure
+        :param edit_method: (optional) Passed to dynamic_reconfigure
+        :param default: (optional) default value
+        :param min: (optional)
+        :param max: (optional)
+        :param configurable: (optional) Should this parameter be dynamic configurable
+        :param global_scope: (optional) If true, parameter is searched in global ('/') namespace instead of private ('~') ns
+        :param constant: (optional) If this is true, the parameter will not be fetched from param server, but the default value is kept.
+        :return: None
+
+ def add_enum(self, name, description, entry_strings, default=None):
+        Adds an enum to dynamic reconfigure
+        :param name: Name of enum parameter
+        :param description: Informative documentation string
+        :param entry_strings: Enum entries, must be strings! (will be numbered with increasing value)
+        :param default: Default value
+        :return:
+
+"""
+from mrt_cmake_modules.parameter_generator_catkin import *
+
+gen = ParameterGenerator()
+
+# ROS-specific
+gen.add("msg_queue_size", paramtype='int', description="Queusize for publisher", default=5, min=1)
+gen.add("verbosity", paramtype='std::string', description="Set logger level for this node", default="info")
+
+# Your Params here
+gen.add("path_topic", paramtype='std::string', description="Topicname for path subscriber", default="/path_follower/path")
+gen.add("servo_command_topic", paramtype='std::string', description="Topicname for servo command publisher", default="servo_command")
+
+gen.add("control_loop_rate", paramtype='double', description="controllers loop rate", default=50.0, min=10.0, max=200.0)
+gen.add("map_frame_id", paramtype='std::string', description="frame if of the map frame", default="world")
+gen.add("vehicle_frame_id", paramtype='std::string', description="frame if of the vehicle frame (rear axle)", default="vehicle_rear_axle")
+
+
+gen.add("kos_shift", paramtype='double', description="shift kos to point which stays on trajectory", default=0.34, min=0, max=1, configurable=True, global_scope=False)
+gen.add("index_shift", paramtype='int', description="Index shift of lookahead point", default=10, min=0, max=50, configurable=True, global_scope=False)
+gen.add("ii_off", paramtype='int', description="+/- index offset for curvature approx.", default=12, min=0, max=20, configurable=True, global_scope=False)
+
+gen.add("wheel_base", paramtype='double', description="wheelbase of anicar", default=0.52, min=0, max=1, configurable=True, global_scope=False)
+
+gen.add("k_ang", paramtype='double', description="Angle weight", default=2.5, min=0, max=10, configurable=True, global_scope=False)
+gen.add("k_dist", paramtype='double', description="Dist weight", default=5.0, min=0, max=10, configurable=True, global_scope=False)
+
+gen.add("max_steering_angle", paramtype='double', description="the maximal possible steering nalge (rad)", default = 0.7)
+
+# DO NOT TOUCH THIS LINE
+#Syntax : Package, Node, Config Name(The final name will be LateralControllerConfig)
+exit(gen.generate("lateral_control_ros_tool", "lateral_controller", "LateralController"))

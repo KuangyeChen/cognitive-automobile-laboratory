@@ -1,0 +1,10 @@
+<launch>
+  <!-- Default values -->
+  <arg name="stargazer_cfg_file" default="$(find stargazer_ros_tool)/res/stargazer_optimized.yaml"/>
+  <arg name="camera_ns"/>
+  <node pkg="stargazer_ros_tool" type="intrinsics_tool" name="upload_intrinsics" output="screen">
+    <param name="stargazer_config_path" value="$(arg stargazer_cfg_file)"/>
+    <remap from="/camera/set_camera_info" to="$(arg camera_ns)/set_camera_info" />
+    <remap from="/camera/camera_info" to="$(arg camera_ns)/camera_info" />
+  </node>
+</launch>

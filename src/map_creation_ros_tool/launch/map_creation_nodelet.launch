@@ -1,0 +1,18 @@
+<launch>
+
+    <arg name="config" default="$(find map_creation_ros_tool)/launch/params/map_creation_parameters.yaml"/>
+    <arg name="nodelet_manager_name" default="nodelet_manager_map_creation"/>
+    <arg name="start_nodelet_manager" default="true"/>
+    <arg name="nodelet_name" default="map_creation"/>
+
+    <!-- Nodelet manager (if enabled) -->
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_manager_name)" args="manager" output="screen"
+          if="$(arg start_nodelet_manager)"/>
+
+    <!-- MapCreation -->
+    <node pkg="nodelet" type="nodelet" name="$(arg nodelet_name)"
+          args="load map_creation_ros_tool/MapCreationNodelet $(arg nodelet_manager_name)" output="screen" required="true">
+        <rosparam command="load" file="$(arg config)"/>
+    </node>
+
+</launch>

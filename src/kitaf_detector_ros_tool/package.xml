@@ -1,0 +1,54 @@
+<package format="2">
+  <name>kitaf_detector_ros_tool</name>
+  <version>0.0.0</version>
+  <description>ToDo: Edit package description</description>
+
+  <license>contact-the-maintainer</license>
+  <maintainer email="chen.kuangye@gmail.com">Kuangye Chen</maintainer>
+  <author email="chen.kuangye@gmail.com">Kuangye Chen</author>
+  <url type="repository">https://gitlab.mrt.uni-karlsruhe.de/kal3/kitaf_detector_ros_tool</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <build_depend>rosinterface_handler</build_depend>
+  <build_depend>message_generation</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <test_depend>gtest</test_depend>
+  <test_depend>rostest</test_depend>
+
+  <build_depend>roscpp</build_depend>
+  <!-- <depend>rospy</depend> Use this instead of roscpp  when writing a python node -->
+  <depend>roslib</depend>
+  <depend>nodelet</depend>
+
+  <!--
+    Documentation for dependencies:
+    <build_depend>            Build-time dependency required to build
+                              this package, e.g. boost, opencv.
+    <build_export_depend>     Exported build-time dependency required to
+                              build packages that depend on this package,
+                              e.g. boost, opencv.
+    <exec_depend>             Execution dependency required to run this
+                              package, e.g. boost, opencv.
+    <depend>                  Build-time, exported build-time and execution
+                              dependency. This is a bundled synonym for
+                              <build_depend>, <build_export_depend> and
+                              <exec_depend>.
+  -->
+  <!--
+    Example:
+    <depend>mrt_opencv</depend>
+  -->
+
+  <depend>util_testing_ros</depend>
+  <depend>dynamic_reconfigure</depend>
+  <depend>rospy</depend>
+  <depend>image_transport</depend>
+  <depend>mrt_opencv</depend>
+  <depend>message_filters</depend>
+  <depend>mrt_cv_bridge_ros</depend>
+  <depend>kitaf_utils_ros</depend>
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>

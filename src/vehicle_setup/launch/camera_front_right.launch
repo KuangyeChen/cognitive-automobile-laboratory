@@ -1,0 +1,12 @@
+<launch>
+ <node name="right" ns="/sensors/camera" pkg="prosilica_driver" type="prosilica_node" output="screen">
+    <remap from="camera_info" to="right/camera_info" />
+    <remap from="image_raw" to="right/image_raw" />
+
+    <param name="guid" value="" />
+    <param name="ip_address" type="str" value="169.254.1.100" />
+    <param name="trigger_mode" value="syncin2" />
+    <param name="auto_exposure" value="false" />
+    <param name="frame_id" value="camera_front_right" />
+  </node>
+</launch>

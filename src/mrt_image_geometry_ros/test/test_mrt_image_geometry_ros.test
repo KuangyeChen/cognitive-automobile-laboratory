@@ -1,0 +1,5 @@
+<launch>
+  <!-- use this like a normal launch file to set up your test environment. The test tag below is used to launch your unittest node-->
+
+  <test test-name="test_mrt_image_geometry_ros" pkg="mrt_image_geometry_ros" type="test_mrt_image_geometry_ros-test" />
+</launch>

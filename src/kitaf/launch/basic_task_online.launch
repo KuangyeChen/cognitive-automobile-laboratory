@@ -1,0 +1,12 @@
+<launch>
+
+  <include file="$(find kitaf_navigation_ros_tool)/launch/kitaf_path_provider_node.launch" />
+  <include file="$(find kitaf_navigation_ros_tool)/launch/path_planning_node.launch" />
+
+  <include file="$(find map_creation_ros_tool)/launch/map_creation_node.launch" />
+
+  <node name="sign_detection_launcher" pkg="kitaf" type="launch_sign_detection.sh" args="$(find kitaf)" />
+
+  <include file="$(find kitaf_lateral_control_ros_tool)/launch/kitaf_controller_node.launch" />
+
+</launch>

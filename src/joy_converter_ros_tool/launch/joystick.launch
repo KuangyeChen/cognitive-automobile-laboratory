@@ -1,0 +1,17 @@
+<launch>
+  <node name="joy_node" type="joy_node" pkg="joy" output="screen">
+  </node>
+  <node name="joy2motor" type="joy_converter_ros_tool" pkg="joy_converter_ros_tool" output="screen">
+    <param name="velocity_joystick_axis" value="1" type="int" />
+    <param name="steering_joystick_axis" value="2" type="int" />
+    <param name="activation_joystick_button" value="2" type="int" />
+    <param name="deactivation_joystick_button" value="3" type="int" />
+    <param name="max_velocity" value="1" type="double" />
+    <param name="max_steering_angle" value="0.7" type="double" />
+
+    <remap from="/joy2motor/joy" to="/joy" />
+    <remap from="/joy2motor/motor_command" to="/motor_interface/motor_command" />
+    <remap from="/joy2motor/servo_command" to="/motor_interface/servo_command" />
+    <remap from="/joy2motor/activate" to="/motor_interface/activate" />
+  </node>
+</launch>

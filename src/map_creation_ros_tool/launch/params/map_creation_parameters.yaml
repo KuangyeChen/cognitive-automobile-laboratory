@@ -1,0 +1,24 @@
+# Use this file to specify parameters, that do not have default values.
+# YAML Files can also be helpful if you want to save parameters for different use-cases.
+# In any way: Default values should go into the .if file!
+#
+# To generate a yaml file, use "rosrun rosinterface_handler generate_yaml /path/to/MapCreation.if"
+#
+# Use 'key: value' pairs, e.g.
+# string: 'foo'
+# integer: 1234
+# float: 1234.5
+# boolean: true
+# vector: [1.0, 2.0, 3.4]
+# map: {"a": "b", "c": "d"}
+
+verbosity: info
+
+map_height: 8.0
+map_width: 8.0
+resolution: 0.05
+origin_x: 10.0
+origin_y: 0.0
+update_threshold: 20
+weight_per_point: 40.0
+model_confidence: 80

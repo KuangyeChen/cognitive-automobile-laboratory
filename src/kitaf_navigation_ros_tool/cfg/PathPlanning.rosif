@@ -1,0 +1,65 @@
+#!/usr/bin/env python
+"""
+Add your desired parameters here. All required headers will be generated from this.
+!!!IMPORTANT this file must be executable !!!
+
+Use one of these commands to add parameters to your parameter struct:
+
+def add(self, name, paramtype, description, level=0, edit_method='""', default=None, min=None, max=None, configurable=False, global_scope=False, constant=False):
+        Adds parameters to your parameter struct.
+
+def add_enum(self, name, description, entry_strings, default=None, paramtype='int'):
+        Adds an enum to dynamic reconfigure
+
+def add_group(self, name):
+        Create a parameter group for the dynamic_reconfigure window
+
+def add_publisher(self, name, message_type, description, default_topic="", default_queue_size=5, topic_param=None,
+                  queue_size_param=None, header=None, module=None, configurable=False, scope='private',
+                  constant=False):
+        Adds an initialized publisher to your parameter struct and parameter for its topic and queue size
+
+def add_subscriber(self, name, message_type, description, default_topic="", default_queue_size=5, no_delay=False,
+                   topic_param=None, queue_size_param=None, header=None, module=None, configurable=False,
+                   scope='private', constant=False):
+        Adds an initialized subscriber to your parameter struct and parameters for topic and queue size.
+
+
+For more information on the API, see here: https://gitlab.mrt.uni-karlsruhe.de/MRT/rosinterface_handler/blob/master/doc/HowToWriteYourFirstInterfaceFile.md
+"""
+from rosinterface_handler.interface_generator_catkin import *
+
+gen = InterfaceGenerator()
+
+# Add a parameter for changing verbosity (=log level) on the fly
+gen.add_verbosity_param(configurable=True)
+
+# Your Params here
+
+gen.add("map_topic", paramtype='std::string', description="Input topic for map.", default='/map')
+gen.add("map_queue_size", paramtype='int', description="Queue size for traffic sign.", default=2)
+gen.add("path_topic", paramtype='std::string', description="Output topic for path.", default='/path')
+gen.add("service_name", paramtype='std::string', description="Service name to activate.", default='/service')
+gen.add("path_queue_size", paramtype='int', description="Queue size for Path.", default=1)
+gen.add("update_path_rate", paramtype='int', description="Rate path switch check.", default=20)
+gen.add("publish_path_rate", paramtype='int', description="Rate path switch check.", default=5)
+gen.add("map_frame_id", paramtype='std::string', description="Frame id for map.", default='world')
+gen.add("vehicle_frame_id", paramtype='std::string', description="Frame id for vehicle.", default='vehicle_front_axle')
+gen.add("planning_margin", paramtype='double', description="Planning forward margin", default=0.2, min=0.0, max=0.6,
+        configurable=True, global_scope=False)
+gen.add("probability_threshold", paramtype='int', description="Probability threshold for being an obstacle.",
+        default=90, min=50, max=99)
+gen.add("search_width", paramtype='double', description="Search width", default=0.2, min=0.1, max=0.5,
+        configurable=True, global_scope=False)
+gen.add("search_density", paramtype='double', description="Distance between search points",
+        default=0.01, min=0.001, max=0.05, configurable=True, global_scope=False)
+gen.add("search_interval", paramtype='double', description="Distance between path points",
+        default=0.05, min=0.0, max=0.1, configurable=True, global_scope=False)
+gen.add("effect_range", paramtype='double', description="How far the obstacle effect the field",
+        default=0.25, min=0.0, max=0.8, configurable=True, global_scope=False)
+gen.add("momentum", paramtype='double', description="Theta momentum",
+        default=0.6, min=0.0, max=1.0, configurable=True, global_scope=False)
+
+# DO NOT TOUCH THIS LINE
+#Syntax : Package, Node, Config Name(The final name will be PathPlanningConfig)
+exit(gen.generate("kitaf_navigation_ros_tool", "path_planning", "PathPlanning"))

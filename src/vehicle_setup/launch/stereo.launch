@@ -1,0 +1,30 @@
+<launch>
+  <arg name="scale" default="0.5" />
+  <arg name="car_name" default="$(env CAR_NAME)" doc="Set the CAR_NAME environment variable to 'anicar2' or 'anicar3' prior to starting this launch file" />
+
+  <node name="resized" type="resize" pkg="image_preproc_ros_tool" ns="/sensors/camera/left">
+    <remap from="/sensors/camera/left/src/image_camera/image" to="/sensors/camera/left/image_raw" />
+    <remap from="/sensors/camera/left/src/src/image_camera/camera_info" to="/sensors/camera/left/camera_info" />
+    <remap from="/sensors/camera/left/tgt/image_camera/image" to="/sensors/camera/left/resized/image_raw"/>
+    <remap from="/sensors/camera/left/tgt/image_camera/camera_info" to="/sensors/camera/left/resized/camera_info" />
+    <param name="scale" type="double" value="$(arg scale)" />
+  </node>
+
+  <node name="resized" type="resize" pkg="image_preproc_ros_tool" ns="/sensors/camera/right">
+    <remap from="/sensors/camera/right/src/image_camera/image" to="/sensors/camera/right/image_raw" />
+    <remap from="/sensors/camera/right/src/image_camera/camera_info" to="/sensors/camera/right/camera_info" />
+    <remap from="/sensors/camera/right/tgt/image_camera/image" to="/sensors/camera/right/resized/image_raw"/>
+    <remap from="/sensors/camera/right/tgt/image_camera/camera_info" to="/sensors/camera/right/resized/camera_info" />
+    <param name="scale" type="double" value="$(arg scale)" />
+  </node>
+
+  <node name="stereo_image_proc" type="stereo_image_proc" pkg="stereo_image_proc" ns="/sensors/camera">
+    <remap from="/sensors/camera/left/image_raw" to="/sensors/camera/left/resized/image_raw" />
+    <remap from="/sensors/camera/left/camera_info" to="/sensors/camera/left/resized/camera_info" />
+    <remap from="/sensors/camera/right/image_raw" to="/sensors/camera/right/resized/image_raw" />
+    <remap from="/sensors/camera/right/camera_info" to="/sensors/camera/right/resized/camera_info" />
+    <remap from="/sensors/camera/points2" to="/sensors/camera/stereo/points2" />
+    <param name="approximate_sync" value="true" />
+    <rosparam command="load" file="$(find vehicle_setup)/launch/params/$(arg car_name)/stereo.yaml"/>
+  </node>
+</launch>

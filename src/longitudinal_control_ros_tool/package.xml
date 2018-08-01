@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package format="2">
+  <name>longitudinal_control_ros_tool</name>
+  <version>0.0.0</version>
+  <description>ToDo: Edit package description</description>
+
+  <license>contact-the-maintainer</license>
+  <maintainer email="uydfk@student.kit.edu">Qiuhao Zhang</maintainer>
+  <author email="uydfk@student.kit.edu">Qiuhao Zhang</author>
+  <url type="repository">https://gitlab.mrt.uni-karlsruhe.de/kognitive_automobile_labor/longitudinal_control_ros_tool.git</url>
+
+  <buildtool_depend>catkin</buildtool_depend>
+  <build_depend>mrt_cmake_modules</build_depend>
+  <build_depend>rosinterface_handler</build_depend>
+  <build_depend>message_generation</build_depend>
+  <build_depend>rosparam_handler</build_depend>
+  <exec_depend>message_runtime</exec_depend>
+  <test_depend>gtest</test_depend>
+  <test_depend>rostest</test_depend>
+
+  <build_depend>roscpp</build_depend>
+  <!-- <depend>rospy</depend> Use this instead of roscpp  when writing a python node -->
+  <depend>roslib</depend>
+  <depend>nodelet</depend>
+
+  <depend>dynamic_reconfigure</depend>
+  <depend>motor_interface_ros_tool</depend>
+  <depend>utils_ros</depend>
+
+  <export>
+    <!-- Other tools can request additional information be placed here -->
+  </export>
+</package>

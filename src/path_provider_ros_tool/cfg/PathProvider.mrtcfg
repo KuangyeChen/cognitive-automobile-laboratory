@@ -1,0 +1,52 @@
+#!/usr/bin/env python
+"""
+Add your desired parameters here. All required headers will be generated from this.
+!!!IMPORTANT this file must be executable !!!
+
+Use one of these commands to add parameters to your parameter struct.
+
+ def add(self, name, paramtype, description, level=0, edit_method='""', default=None, min=None, max=None, configurable=False, global_scope=False, constant=False):
+        Adds parameters to your parameter struct.
+
+        - If no default value is given, you need to specify one in your launch file
+        - Global parameters, vectors, maps and constant params can not be configurable
+        - Global parameters, vectors and maps can not have a default, min or max value
+
+        :param self:
+        :param name: The Name of you new parameter
+        :param paramtype: The C++ type of this parameter. Can be any of ['std::string', 'int', 'bool', 'float', 'double'] or std::vector<...> or std::map<std::string, ...>
+        :param description: Choose an informative documentation string for this parameter.
+        :param level: (optional) Passed to dynamic_reconfigure
+        :param edit_method: (optional) Passed to dynamic_reconfigure
+        :param default: (optional) default value
+        :param min: (optional)
+        :param max: (optional)
+        :param configurable: (optional) Should this parameter be dynamic configurable
+        :param global_scope: (optional) If true, parameter is searched in global ('/') namespace instead of private ('~') ns
+        :param constant: (optional) If this is true, the parameter will not be fetched from param server, but the default value is kept.
+        :return: None
+
+ def add_enum(self, name, description, entry_strings, default=None):
+        Adds an enum to dynamic reconfigure
+        :param name: Name of enum parameter
+        :param description: Informative documentation string
+        :param entry_strings: Enum entries, must be strings! (will be numbered with increasing value)
+        :param default: Default value
+        :return:
+
+"""
+from mrt_cmake_modules.parameter_generator_catkin import *
+
+gen = ParameterGenerator()
+
+gen.add("msg_queue_size", paramtype='int', description="Queusize for publisher", default=5, min=1)
+gen.add("verbosity", paramtype='std::string', description="Set logger level for this node", default="info")
+gen.add("topic_publisher", paramtype='std::string', description="Topic name of publisher", default="/path")
+gen.add("timer_rate", paramtype='double', description="Timer rate in Hz", default=5, min=1, max=20, configurable=True, global_scope=False)
+gen.add("bag_file_name", paramtype='std::string', description="File name of rosbag containing /tf record")
+gen.add("frame_id_map", paramtype='std::string', description="Map frame ID", default="map")
+gen.add("frame_id_vehicle", paramtype='std::string', description="Vehicle frame ID", default="vehicle")
+gen.add("frame_id_camera", paramtype='std::string', description="Top camera frame ID", default="camera_top")
+gen.add("frame_id_stargazer", paramtype='std::string', description="Stargazer frame ID", default="stargazer")
+
+exit(gen.generate("path_provider_ros_tool", "path_provider", "PathProvider"))

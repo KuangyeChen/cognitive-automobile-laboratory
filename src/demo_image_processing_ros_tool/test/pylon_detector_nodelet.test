@@ -1,0 +1,6 @@
+<launch>
+
+    <test test-name="pylon_detector_nodelet_test" pkg="demo_image_processing_ros_tool" type="pylon_detector_nodelet-test" time-limit="60.0"/>
+    <include file="$(find demo_image_processing_ros_tool)/launch/pylon_detector_nodelet.launch"/>
+</launch>
+

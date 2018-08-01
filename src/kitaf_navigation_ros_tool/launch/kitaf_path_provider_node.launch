@@ -1,0 +1,10 @@
+<launch>
+
+  <arg name="config" default="$(find kitaf_navigation_ros_tool)/launch/params/kitaf_path_provider_parameters.yaml" />
+
+  <node pkg="kitaf_navigation_ros_tool" type="kitaf_path_provider" name="kitaf_path_provider" output="screen">
+    <rosparam command="load" file="$(arg config)"/>
+    <param name="data_path" value="$(find kitaf_navigation_ros_tool)/res/$(env CAR_NAME)/"/>
+  </node>
+
+</launch>

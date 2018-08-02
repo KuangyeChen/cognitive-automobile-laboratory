@@ -16,7 +16,7 @@ This is an [course project](https://www.mrt.kit.edu/lehre_SS_Kognitive_Automobil
 
 ### kitaf_detector_ros_tool
 Detection of traffic signs and other vehicles based on TensorFlow and [SSD](https://arxiv.org/pdf/1512.02325.pdf) neural network.<br/>
-Our result is pretty impressive, which is capable of detecting traffic signs in real time with an accuracy above 96%.<br/>
+Our result is capable of detecting traffic signs in real time with an accuracy above 96%, and detecting vehicles with low false negative rate.<br/>
 <p align="center">
   <a href="https://www.youtube.com/watch?v=TLpxAJpOwIY"><img src="https://j.gifs.com/yrNmz7.gif" title="Traffic Sign Detection Demo - Click to Watch"/></a>
 </p>

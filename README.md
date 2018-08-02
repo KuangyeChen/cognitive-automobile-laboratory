@@ -22,7 +22,7 @@ Our result is capable of detecting traffic signs in real time with an accuracy a
 </p>
 
 ### kitaf_lateral_control_ros_tool
-Controlling the vehicle based on [stanley controller](https://www.ri.cmu.edu/pub_files/2009/2/Automatic_Steering_Methods_for_Autonomous_Automobile_Path_Tracking.pdf).<br/>
+Controlling the vehicle based on [stanley controller](http://ai.stanford.edu/~gabeh/papers/hoffmann_stanley_control07.pdf).<br/>
 We first use kinematic model for its easy implementation, and then move to dynamic model for better performance.
 
 ### map_creation_ros_tool, kitaf_navigation_ros_tool

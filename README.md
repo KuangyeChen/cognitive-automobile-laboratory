@@ -1,5 +1,5 @@
 # Cognitive Automobile Laboratory
-This is an excellent [course project](https://www.mrt.kit.edu/lehre_SS_Kognitive_Automobile_Labor.php) from [MRT](https://www.mrt.kit.edu/index.php) of Karlsruhe Institute of Technology, focusing on implementation of algorithms for autonomous driving.<br/><br/>
+This is an [course project](https://www.mrt.kit.edu/lehre_SS_Kognitive_Automobile_Labor.php) from [MRT](https://www.mrt.kit.edu/index.php) of Karlsruhe Institute of Technology, focusing on implementation of algorithms for autonomous driving.<br/><br/>
 <p align="center">
   <a href="https://www.youtube.com/watch?v=ryiSJ79cOZs&t=7s"><img src="https://i.imgur.com/lSv9e1u.png" width="70%" height="70%" title="Final Competition - Click to Watch"/></a>
 </p>
